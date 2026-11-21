@@ -119,7 +119,9 @@ function renderDrill(){
  }
  input.disabled=!layers.ready.has('addresses');input.oninput=search;search()
  if(home){const m=$<HTMLSelectElement>('#mode');m.value=profileMode;const update=()=>{profileMode=m.value;showProfile($('#profile'),home!,profileMode)};m.onchange=update;update()}
- const planning=$('#planningContent');if(planning)showPlanning(planning,block,home)
+ const planning=$('#planningContent')
+ if(planning)showPlanning(planning,block,home,keys=>map?.showApplicationBlocks(keys))
+ else map?.showApplicationBlocks(new Set())
 }
 function render(){
  const name=area?title(area.properties.DIVISION_NAME):''

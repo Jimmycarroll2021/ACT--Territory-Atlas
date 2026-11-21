@@ -26,3 +26,6 @@ button:disabled,select:disabled,input:disabled{cursor:default;opacity:.65}
 .planning .planningGroup,.nearby{margin-top:14px}
 .nearby summary{font-size:13px;font-weight:650;padding:5px 0}
 .applicationList .facts{margin:7px 0 0}
+
+.swatch.application{background:#ffe044;border-color:#8b6b00;flex:none}
+.planningMapKey{display:flex;align-items:baseline;gap:8px}

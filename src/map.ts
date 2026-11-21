@@ -15,8 +15,17 @@ export function attachMap(data:Dataset, events:{division:(name:string)=>void;blo
  const active=new Set<LayerName>(Object.keys(names) as LayerName[])
  const menu=document.querySelector('#layerMenu')!
  for(const key of Object.keys(names) as LayerName[]){const label=document.createElement('label'),box=document.createElement('input');box.type='checkbox';box.checked=true;box.onchange=()=>{if(box.checked)active.add(key);else active.delete(key);visibility()};label.append(box,names[key]);menu.append(label)}
+ let applicationsVisible=true
+ const applicationsLabel=document.createElement('label')
+ const applicationsToggle=document.createElement('input')
+ applicationsToggle.type='checkbox'
+ applicationsToggle.checked=true
+ applicationsToggle.onchange=()=>{applicationsVisible=applicationsToggle.checked;visibility()}
+ applicationsLabel.append(applicationsToggle,'Development applications')
+ menu.append(applicationsLabel)
+ const applicationLayers=['application-fill','application-outline']
  const drill=new Set(['blocks','addresses','footprints','units'])
- function visibility(){if(!ready)return;for(const key of Object.keys(names) as LayerName[])for(const id of groups[key])map.setLayoutProperty(id,'visibility',active.has(key)&&(!drill.has(key)||kingston)?'visible':'none')}
+ function visibility(){if(!ready)return;for(const key of Object.keys(names) as LayerName[])for(const id of groups[key])map.setLayoutProperty(id,'visibility',active.has(key)&&(!drill.has(key)||kingston)?'visible':'none');for(const id of applicationLayers)map.setLayoutProperty(id,'visibility',applicationsVisible&&kingston?'visible':'none')}
  const local=(spec:LayerSpecification)=>map.addLayer(spec)
  const point=(f:Item)=>{const [[a,b],[c,d]]=bounds(f);return [(a+c)/2,(b+d)/2] as [number,number]}
  const capital=document.createElement('div');capital.className='mapLabel capital';capital.textContent='Canberra'
@@ -35,10 +44,18 @@ export function attachMap(data:Dataset, events:{division:(name:string)=>void;blo
    }
  }
  function fit(f:Item,maxZoom=16){map.fitBounds(bounds(f),{padding:window.innerWidth<730?28:52,maxZoom,duration:matchMedia('(prefers-reduced-motion: reduce)').matches?0:430})}
+ let applicationKeys:ReadonlySet<string>=new Set()
+ function syncApplications(){
+   if(!ready)return
+   const features=data.blocks.features.filter(f=>applicationKeys.has(String(f.properties.BLOCK_KEY)))
+   const source=map.getSource('application-blocks') as GeoJSONSource
+   source.setData({type:'FeatureCollection',features})
+ }
  let selected:Partial<Record<'area'|'parcel'|'home'|'unit'|'building',Item|undefined>>={}
  function sync(){if(!ready)return;for(const id of ['area','parcel','home','unit','building'] as const){const f=selected[id];(map.getSource('sel-'+id) as GeoJSONSource).setData(f||empty)}}
  map.once('load',()=>{
    for(const key of Object.keys(data) as LayerName[])map.addSource(key,{type:'geojson',data:data[key]})
+   map.addSource('application-blocks',{type:'geojson',data:empty})
    for(const id of ['area','parcel','home','unit','building'])map.addSource('sel-'+id,{type:'geojson',data:empty})
    local({id:'urban-fill',type:'fill',source:'urban',paint:{'fill-color':'#96b281','fill-opacity':.28}})
    local({id:'div-fill',type:'fill',source:'divisions',paint:{'fill-color':'#b2cbae','fill-opacity':.12}})
@@ -47,14 +64,16 @@ export function attachMap(data:Dataset, events:{division:(name:string)=>void;blo
    local({id:'selected-area',type:'line',source:'sel-area',paint:{'line-color':'#a34b30','line-width':2.2}})
    local({id:'block-fill',type:'fill',source:'blocks',paint:{'fill-color':'#e8d4a2','fill-opacity':.45}})
    local({id:'block-line',type:'line',source:'blocks',paint:{'line-color':'#84734b','line-width':1}})
+   local({id:'application-fill',type:'fill',source:'application-blocks',paint:{'fill-color':'#ffe044','fill-opacity':.82}})
    local({id:'building-fill',type:'fill',source:'footprints',paint:{'fill-color':'#758877','fill-opacity':.65,'fill-outline-color':'#536b59'}})
+   local({id:'application-outline',type:'line',source:'application-blocks',paint:{'line-color':'#e7b805','line-width':5}})
    local({id:'chosen-block',type:'line',source:'sel-parcel',paint:{'line-color':'#a64a2c','line-width':3}})
    local({id:'chosen-building',type:'line',source:'sel-building',paint:{'line-color':'#374b78','line-width':3}})
    local({id:'unit-fill',type:'fill',source:'sel-unit',paint:{'fill-color':'#bd532b','fill-opacity':.45}})
    local({id:'unit-line',type:'line',source:'sel-unit',paint:{'line-color':'#a53f20','line-width':2.5}})
    local({id:'address-point',type:'circle',source:'addresses',minzoom:15,paint:{'circle-radius':['interpolate',['linear'],['zoom'],15,2.5,19,5],'circle-color':'#934731','circle-stroke-color':'#fffaf0','circle-stroke-width':1}})
    local({id:'chosen-home',type:'circle',source:'sel-home',paint:{'circle-radius':7,'circle-color':'#aa472b','circle-stroke-width':3,'circle-stroke-color':'#fffdf5'}})
-   ready=true;visibility();sync();updateMarkers()
+   ready=true;visibility();sync();syncApplications();updateMarkers()
    void addBasemap()
  })
  async function addBasemap(){
@@ -98,8 +117,10 @@ export function attachMap(data:Dataset, events:{division:(name:string)=>void;blo
    onCamera:(handler:()=>void)=>map.on('moveend',handler),
    refreshLayer(name: LayerName){
      if(ready)(map.getSource(name) as GeoJSONSource).setData(data[name])
+     if(name==='blocks')syncApplications()
      if(name==='divisions' && ready)updateMarkers()
    },
+   showApplicationBlocks(keys:ReadonlySet<string>){applicationKeys=keys;syncApplications()},
    division(f:Item){kingston=f.properties.DIVISION_NAME==='KINGSTON';selected={area:f};sync();visibility();fit(f);updateMarkers()},
    select(block?:Item,address?:Item,unit?:Item,building?:Item,move=true){
      selected={area:kingstonDivision(),parcel:block,home:address,unit,building};sync()

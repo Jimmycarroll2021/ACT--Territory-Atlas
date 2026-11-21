@@ -191,18 +191,34 @@ function applicationRow(app: Application, distanceM?: number): string {
     `<dt>Decision date</dt><dd>${dateLabel(app.decisionDate)}</dd></dl></li>`
 }
 
-function applicationContent(key: string, loading: boolean): string {
-  if (!applications) return state(loading ? 'Loading development applications…' : 'Development application data unavailable.')
-  const {byBlock, sourceUrls, snapshotDate, completedSince, radiusM, applications: byNumber} = applications
+function applicationMatch(key: string) {
+  if (!applications) return
+  const {byBlock, radiusM, applications: byNumber} = applications
   const match = byBlock[key]
+  if (record(match) && strings(match.onBlock) && Array.isArray(match.nearby) &&
+      match.onBlock.every(number => validApplication(byNumber[number], number)) &&
+      match.nearby.every(row => record(row) && typeof row.number === 'string' && finite(row.distanceM) &&
+        row.distanceM <= radiusM && validApplication(byNumber[row.number], row.number))) {
+    return match
+  }
+}
+
+function applicationBlockKeys(match: ReturnType<typeof applicationMatch>): Set<string> {
+  const keys = new Set<string>()
+  if (!applications || !match) return keys
+  const relevant = new Set([...match.onBlock, ...match.nearby.map(row => row.number)])
+  for (const [key, row] of Object.entries(applications.byBlock)) {
+    if (record(row) && strings(row.onBlock) && row.onBlock.some(number => relevant.has(number))) keys.add(key)
+  }
+  return keys
+}
+
+function applicationContent(match: ReturnType<typeof applicationMatch>, loading: boolean): string {
+  if (!applications) return state(loading ? 'Loading development applications…' : 'Development application data unavailable.')
+  const {sourceUrls, snapshotDate, completedSince, radiusM, applications: byNumber} = applications
   const sourceLinks = `<p class="planningLinks">${link(sourceUrls.active, 'ACT active DA source')} ${link(sourceUrls.completed, 'ACT completed DA source')}</p>`
   const coverage = metadata(snapshotDate) + `<p class="notice">Active records in the snapshot and completed records since ${dateLabel(completedSince)}. Nearby distances are measured from the selected block to the mapped application geometry.</p>` + sourceLinks
-  if (!record(match) || !strings(match.onBlock) || !Array.isArray(match.nearby) ||
-      !match.onBlock.every(number => validApplication(byNumber[number], number)) ||
-      !match.nearby.every(row => record(row) && typeof row.number === 'string' && finite(row.distanceM) &&
-        row.distanceM <= radiusM && validApplication(byNumber[row.number], row.number))) {
-    return state('Development application coverage unavailable for this block.') + coverage
-  }
+  if (!match) return state('Development application coverage unavailable for this block.') + coverage
   const exact = match.onBlock.map(number => applicationRow(byNumber[number]))
   const nearby = match.nearby.map(row => applicationRow(byNumber[row.number], row.distanceM))
   return coverage + '<h4 class="planningGroup">On this registered block</h4>' +
@@ -211,20 +227,25 @@ function applicationContent(key: string, loading: boolean): string {
       `<h4 class="planningGroup">Nearby within ${radiusM} m</h4>${state('No nearby applications found in this snapshot.')}`)
 }
 
-export function showPlanning(container: HTMLElement, block?: Item, home?: Item) {
+export function showPlanning(container: HTMLElement, block: Item | undefined, home: Item | undefined,
+  showApplicationBlocks: (keys: ReadonlySet<string>) => void) {
   const key = String(block?.properties.BLOCK_KEY ?? home?.properties.BLOCK_KEY ?? '')
   if (!/^\d+$/.test(key)) {
+    showApplicationBlocks(new Set())
     container.innerHTML = state('Planning unavailable. This address has no registered block key.')
     return
   }
   const scope = block ? `Section ${esc(block.properties.SECTION_NUMBER)} · Block ${esc(block.properties.BLOCK_NUMBER)}` : `Block key ${esc(key)}`
   function render(loading: boolean) {
     if (!container.isConnected) return
+    const match = applicationMatch(key)
+    showApplicationBlocks(applicationBlockKeys(match))
+    const mapKey = match ? '<p class="notice planningMapKey"><span class="swatch application" aria-hidden="true"></span>Yellow marks Kingston blocks linked to these applications. Nearby applications without a Kingston block match appear in the list.</p>' : ''
     const retry = !loading && (!zoning || !applications) ? '<button class="retry">Retry planning data</button>' : ''
     container.innerHTML = `<p class="bodyText">${scope}${home ? ' · parent block' : ''}</p>` +
       '<p class="notice">Check the official records for current zoning, permissions and application decisions.</p>' +
       `<div class="planningSection"><h3>Mapped zoning</h3>${zoningContent(key, loading)}</div>` +
-      `<div class="planningSection"><h3>Development applications</h3>${applicationContent(key, loading)}</div>${retry}`
+      `<div class="planningSection"><h3>Development applications</h3>${mapKey}${applicationContent(match, loading)}</div>${retry}`
     const button = container.querySelector('button')
     if (button) button.onclick = refresh
   }
