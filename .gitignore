@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.env
+.env.*
+!*.example
+private/
+*.log
+
+/data/private-prep/
+/server/*-qa.png
+/server/mobile-debug.png
+/server/browser-checks.json
+/server/candidate-sha256.json

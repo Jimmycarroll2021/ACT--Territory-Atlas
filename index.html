@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#153e36"><link rel="icon" href="data:,"><title>Territory Atlas · Canberra property map</title></head><body>
+<header><div class="brand"><span class="brandGlyph" data-icon="land"></span><span>Territory Atlas</span></div><span class="headerRule"></span><span class="headerNote">Canberra property map</span><button id="sourcesBtn" class="headerButton"><i data-icon="info"></i><span>Data sources</span></button></header>
+<main><aside aria-label="Map explorer">
+<div class="sideIntro"><div class="eyebrow"><span class="dot"></span> Australian Capital Territory</div><h1 id="panelTitle">Explore Canberra</h1><p id="panelIntro">Browse suburb boundaries and explore property detail in Kingston.</p></div>
+<div class="sideBody"><label for="division">Find a suburb</label><div class="selectWrap"><i data-icon="search"></i><select id="division"><option value="">Choose a suburb</option></select><i data-icon="chevron"></i></div>
+<section id="selection" aria-label="Selected area"></section></div>
+<div class="sideFoot"><i data-icon="map"></i> Canberra, Australia</div></aside>
+<section class="mapArea" aria-label="Interactive Canberra map">
+<div id="map"></div><div class="mapTop"><button id="overview"><i data-icon="frame"></i> Overview</button><button id="layerBtn" aria-expanded="false" aria-controls="layerMenu"><i data-icon="layers"></i> Layers</button></div>
+<fieldset id="layerMenu" hidden><legend>Map layers</legend></fieldset>
+<div class="place" id="place">Canberra <span> / </span> Overview</div>
+<div role="status" id="status"></div>
+</section></main>
+<dialog id="sourceDialog"><button id="closeDialog" aria-label="Close sources"><i data-icon="close"></i></button><div class="eyebrow">Map reference</div><h2>Data sources</h2><div id="sourceList"></div></dialog>
+<script type="module" src="/src/main.ts"></script></body></html>

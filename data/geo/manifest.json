@@ -1,0 +1,460 @@
+{
+  "schemaVersion": 1,
+  "retrievedAtUtc": "2026-11-21T11:10:51Z",
+  "coordinateReferenceSystem": "WGS 84 longitude, latitude (RFC 7946)",
+  "cadastreKeyFormat": "DIVISION:SECTION:BLOCK, normalized division name and numeric source section/block",
+  "joinSummary": {
+    "registeredBlocks": {
+      "distinctCadastreKeys": 375,
+      "distinctBlockKeys": 375
+    },
+    "kingston-addresses": {
+      "cadastreKey": {
+        "matched": 4640,
+        "missingSourceKey": 0,
+        "noMatchingRegisteredBlock": 20
+      },
+      "BLOCK_KEY": {
+        "matched": 4640,
+        "missingSourceKey": 0,
+        "noMatchingRegisteredBlock": 20
+      }
+    },
+    "kingston-footprints": {
+      "cadastreKey": {
+        "matched": 229,
+        "missingSourceKey": 0,
+        "noMatchingRegisteredBlock": 14
+      }
+    },
+    "kingston-units": {
+      "cadastreKey": {
+        "matched": 83,
+        "missingSourceKey": 0,
+        "noMatchingRegisteredBlock": 0
+      },
+      "BLOCK_KEY": {
+        "matched": 83,
+        "missingSourceKey": 0,
+        "noMatchingRegisteredBlock": 0
+      }
+    }
+  },
+  "layers": [
+    {
+      "id": "border",
+      "title": "ACT Border",
+      "file": "public/geo/border.geojson",
+      "url": "/geo/border.geojson",
+      "coverage": "The legal land-administration boundary of the Australian Capital Territory.",
+      "dataSource": {
+        "publisher": "ACT Government / ACTmapi",
+        "dataset": "ACTGOV BORDER",
+        "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_BORDER/FeatureServer/0",
+        "catalogueUrl": "https://www.arcgis.com/home/item.html?id=71f829d78ce34246ad8f71c684042c1d",
+        "catalogueApiUrl": "https://www.arcgis.com/sharing/rest/content/items/71f829d78ce34246ad8f71c684042c1d?f=json",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "termsUrl": "https://www.actmapi.act.gov.au/terms-and-conditions",
+        "attribution": "ACTGOV BORDER from ACTmapi © Australian Capital Territory",
+        "catalogueModifiedAtUtc": "2026-02-23T23:53:21.000Z",
+        "sourceDataEditedAtUtc": "2026-06-13T06:50:41.784Z"
+      },
+      "where": "1=1",
+      "sourceFields": [
+        "OBJECTID",
+        "ID",
+        "TERRTY_ID",
+        "CURRENT_LIFECYCLE_STAGE"
+      ],
+      "objectIdField": "OBJECTID",
+      "countApiUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_BORDER/FeatureServer/0/query?f=json&where=1%3D1&returnCountOnly=true",
+      "idsApiUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_BORDER/FeatureServer/0/query?f=json&where=1%3D1&returnIdsOnly=true",
+      "featurePageApiUrls": [
+        "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_BORDER/FeatureServer/0/query?f=geojson&where=1%3D1&outFields=OBJECTID%2CID%2CTERRTY_ID%2CCURRENT_LIFECYCLE_STAGE&returnGeometry=true&outSR=4326&orderByFields=OBJECTID+ASC&resultOffset=0&resultRecordCount=1000"
+      ],
+      "featureCount": 1,
+      "uniqueObjectIds": 1,
+      "geometryTypes": {
+        "Polygon": 1
+      },
+      "bounds": [
+        148.76279717898,
+        -35.9205153832669,
+        149.399291079563,
+        -35.1244031424252
+      ],
+      "coordinateCount": 2500,
+      "bytes": 92476,
+      "sha256": "19080137c228ad636e69501ccee9c32df9ae2495986a5eed15ab017214275d38",
+      "modifications": "Filtered to project extent and selected public attributes. The service emitted longitude/latitude coordinates in WGS84. No vertex simplification. Reordered polygon rings to RFC 7946 winding while retaining all coordinate positions.",
+      "rewoundRingCount": 1
+    },
+    {
+      "id": "urban",
+      "title": "Canberra - Queanbeyan urban centre (Canberra Part)",
+      "file": "public/geo/urban.geojson",
+      "url": "/geo/urban.geojson",
+      "coverage": "2021 ABS Urban Centre and Locality 802001. This is the ACT portion and excludes the separately coded NSW portion. The definition is statistical.",
+      "dataSource": {
+        "publisher": "Australian Bureau of Statistics",
+        "dataset": "UCL (2021) – ASGS Ed. 3",
+        "sourceUrl": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/UCL/FeatureServer/0",
+        "catalogueUrl": "https://www.arcgis.com/home/item.html?id=4aa80e62c93a48688a1d6e6b98258949",
+        "catalogueApiUrl": "https://www.arcgis.com/sharing/rest/content/items/4aa80e62c93a48688a1d6e6b98258949?f=json",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "termsUrl": "https://www.abs.gov.au/website-privacy-copyright-and-disclaimer",
+        "attribution": "Australian Bureau of Statistics, Australian Statistical Geography Standard Edition 3, UCL (2021), © Commonwealth of Australia",
+        "catalogueModifiedAtUtc": "2026-03-23T04:46:54.000Z",
+        "sourceDataEditedAtUtc": null,
+        "referenceYear": 2021
+      },
+      "where": "ucl_code_2021='802001'",
+      "sourceFields": [
+        "objectid",
+        "ucl_code_2021",
+        "ucl_name_2021",
+        "sosr_code_2021",
+        "sosr_name_2021",
+        "sos_code_2021",
+        "sos_name_2021",
+        "state_code_2021",
+        "state_name_2021",
+        "area_albers_sqkm",
+        "asgs_loci_uri_2021"
+      ],
+      "objectIdField": "objectid",
+      "countApiUrl": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/UCL/FeatureServer/0/query?f=json&where=ucl_code_2021%3D%27802001%27&returnCountOnly=true",
+      "idsApiUrl": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/UCL/FeatureServer/0/query?f=json&where=ucl_code_2021%3D%27802001%27&returnIdsOnly=true",
+      "featurePageApiUrls": [
+        "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/UCL/FeatureServer/0/query?f=geojson&where=ucl_code_2021%3D%27802001%27&outFields=objectid%2Cucl_code_2021%2Cucl_name_2021%2Csosr_code_2021%2Csosr_name_2021%2Csos_code_2021%2Csos_name_2021%2Cstate_code_2021%2Cstate_name_2021%2Carea_albers_sqkm%2Casgs_loci_uri_2021&returnGeometry=true&outSR=4326&orderByFields=objectid+ASC&resultOffset=0&resultRecordCount=1000"
+      ],
+      "featureCount": 1,
+      "uniqueObjectIds": 1,
+      "geometryTypes": {
+        "Polygon": 1
+      },
+      "bounds": [
+        148.96868770982584,
+        -35.48026041933386,
+        149.23325399997077,
+        -35.13690324961193
+      ],
+      "coordinateCount": 5134,
+      "bytes": 205661,
+      "sha256": "40d100e79c4535102dc1d5a2147644146ed7d0de8a394cecf31d0a81eb30e93d",
+      "modifications": "Filtered to project extent and selected public attributes. The service emitted longitude/latitude coordinates in WGS84. No vertex simplification.",
+      "rewoundRingCount": 0
+    },
+    {
+      "id": "divisions",
+      "title": "ACT Divisions",
+      "file": "public/geo/divisions.geojson",
+      "url": "/geo/divisions.geojson",
+      "coverage": "ACT cadastral divisions used as suburb boundaries.",
+      "dataSource": {
+        "publisher": "ACT Government / ACTmapi",
+        "dataset": "ACTGOV DIVISION",
+        "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DIVISIONS/FeatureServer/0",
+        "catalogueUrl": "https://www.arcgis.com/home/item.html?id=fab46ae9304f407499f104bb63c9eb77",
+        "catalogueApiUrl": "https://www.arcgis.com/sharing/rest/content/items/fab46ae9304f407499f104bb63c9eb77?f=json",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "termsUrl": "https://www.actmapi.act.gov.au/terms-and-conditions",
+        "attribution": "ACTGOV DIVISION from ACTmapi © Australian Capital Territory",
+        "catalogueModifiedAtUtc": "2026-02-23T23:53:31.000Z",
+        "sourceDataEditedAtUtc": "2026-11-02T06:03:55.629Z"
+      },
+      "where": "1=1",
+      "sourceFields": [
+        "OBJECTID",
+        "ID",
+        "DIVISION_CODE",
+        "DIVISION_NAME",
+        "DIVISION_SHORT",
+        "GlobalID"
+      ],
+      "objectIdField": "OBJECTID",
+      "countApiUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DIVISIONS/FeatureServer/0/query?f=json&where=1%3D1&returnCountOnly=true",
+      "idsApiUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DIVISIONS/FeatureServer/0/query?f=json&where=1%3D1&returnIdsOnly=true",
+      "featurePageApiUrls": [
+        "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DIVISIONS/FeatureServer/0/query?f=geojson&where=1%3D1&outFields=OBJECTID%2CID%2CDIVISION_CODE%2CDIVISION_NAME%2CDIVISION_SHORT%2CGlobalID&returnGeometry=true&outSR=4326&orderByFields=OBJECTID+ASC&resultOffset=0&resultRecordCount=1000"
+      ],
+      "featureCount": 121,
+      "uniqueObjectIds": 121,
+      "geometryTypes": {
+        "Polygon": 121
+      },
+      "bounds": [
+        148.918035588885,
+        -35.5238551185407,
+        149.233253707001,
+        -35.1369034336594
+      ],
+      "coordinateCount": 11693,
+      "bytes": 458786,
+      "sha256": "c5345742e104bab8a024a420a692fae0de4a23057b19cb62c762b1d4ada9aafe",
+      "modifications": "Filtered to project extent and selected public attributes. The service emitted longitude/latitude coordinates in WGS84. No vertex simplification. Reordered polygon rings to RFC 7946 winding while retaining all coordinate positions.",
+      "rewoundRingCount": 121
+    },
+    {
+      "id": "kingston-blocks",
+      "title": "Kingston registered blocks",
+      "file": "public/geo/kingston-blocks.geojson",
+      "url": "/geo/kingston-blocks.geojson",
+      "coverage": "Registered cadastral polygons may overlap where strata are present. See the deposited plan for the legal parcel definition.",
+      "dataSource": {
+        "publisher": "ACT Government / ACTmapi",
+        "dataset": "ACTGOV BLOCK",
+        "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_BLOCKS/FeatureServer/0",
+        "catalogueUrl": "https://www.arcgis.com/home/item.html?id=802b1fe9b1bc480ba41d6a653ec40b62",
+        "catalogueApiUrl": "https://www.arcgis.com/sharing/rest/content/items/802b1fe9b1bc480ba41d6a653ec40b62?f=json",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "termsUrl": "https://www.actmapi.act.gov.au/terms-and-conditions",
+        "attribution": "ACTGOV BLOCK from ACTmapi © Australian Capital Territory",
+        "catalogueModifiedAtUtc": "2026-07-07T22:28:53.000Z",
+        "sourceDataEditedAtUtc": "2026-11-19T17:55:41.238Z"
+      },
+      "where": "DIVISION_NAME='KINGSTON' AND CURRENT_LIFECYCLE_STAGE='REGISTERED'",
+      "sourceFields": [
+        "OBJECTID",
+        "ID",
+        "BLOCK_KEY",
+        "BLOCK_NUMBER",
+        "SECTION_NUMBER",
+        "BLOCK_SECTION",
+        "DIVISION_CODE",
+        "DIVISION_NAME",
+        "DIVISION_SHORT",
+        "DISTRICT_CODE",
+        "DISTRICT_NAME",
+        "DISTRICT_SHORT",
+        "CURRENT_LIFECYCLE_STAGE",
+        "BLOCK_DERIVED_AREA",
+        "BLOCK_LEASED_AREA",
+        "PLAN_NUMBERS",
+        "DEPOSITED_PLAN_NO",
+        "NEW_TERRITORY_PLAN",
+        "LAND_USE_POLICY_ZONES",
+        "OVERLAY_PROVISION_ZONES",
+        "TYPE",
+        "BLOCK_TYPE_ID",
+        "GROUND_LEVEL",
+        "STRATUM_LOWEST_LEVEL",
+        "STRATUM_HIGHEST_LEVEL",
+        "GlobalID"
+      ],
+      "objectIdField": "OBJECTID",
+      "countApiUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_BLOCKS/FeatureServer/0/query?f=json&where=DIVISION_NAME%3D%27KINGSTON%27+AND+CURRENT_LIFECYCLE_STAGE%3D%27REGISTERED%27&returnCountOnly=true",
+      "idsApiUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_BLOCKS/FeatureServer/0/query?f=json&where=DIVISION_NAME%3D%27KINGSTON%27+AND+CURRENT_LIFECYCLE_STAGE%3D%27REGISTERED%27&returnIdsOnly=true",
+      "featurePageApiUrls": [
+        "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_BLOCKS/FeatureServer/0/query?f=geojson&where=DIVISION_NAME%3D%27KINGSTON%27+AND+CURRENT_LIFECYCLE_STAGE%3D%27REGISTERED%27&outFields=OBJECTID%2CID%2CBLOCK_KEY%2CBLOCK_NUMBER%2CSECTION_NUMBER%2CBLOCK_SECTION%2CDIVISION_CODE%2CDIVISION_NAME%2CDIVISION_SHORT%2CDISTRICT_CODE%2CDISTRICT_NAME%2CDISTRICT_SHORT%2CCURRENT_LIFECYCLE_STAGE%2CBLOCK_DERIVED_AREA%2CBLOCK_LEASED_AREA%2CPLAN_NUMBERS%2CDEPOSITED_PLAN_NO%2CNEW_TERRITORY_PLAN%2CLAND_USE_POLICY_ZONES%2COVERLAY_PROVISION_ZONES%2CTYPE%2CBLOCK_TYPE_ID%2CGROUND_LEVEL%2CSTRATUM_LOWEST_LEVEL%2CSTRATUM_HIGHEST_LEVEL%2CGlobalID&returnGeometry=true&outSR=4326&orderByFields=OBJECTID+ASC&resultOffset=0&resultRecordCount=1000"
+      ],
+      "featureCount": 375,
+      "uniqueObjectIds": 375,
+      "geometryTypes": {
+        "Polygon": 375
+      },
+      "bounds": [
+        149.137005515978,
+        -35.3212605381367,
+        149.154006955445,
+        -35.3097906658356
+      ],
+      "coordinateCount": 2937,
+      "bytes": 460579,
+      "sha256": "ba86983029f9bea9b5ac3175c9109977aff72da43840420151a37e9e1b8130fd",
+      "modifications": "Filtered to project extent and selected public attributes. The service emitted longitude/latitude coordinates in WGS84. No vertex simplification. Added cadastreKey where division, section and block are available. Reordered polygon rings to RFC 7946 winding while retaining all coordinate positions.",
+      "rewoundRingCount": 387
+    },
+    {
+      "id": "kingston-addresses",
+      "title": "Kingston assigned addresses",
+      "file": "public/geo/kingston-addresses.geojson",
+      "url": "/geo/kingston-addresses.geojson",
+      "coverage": "Official address points may share coordinates, especially within a building. Distinct address records are preserved.",
+      "dataSource": {
+        "publisher": "ACT Government / ACTmapi",
+        "dataset": "ACTGOV ADDRESSES",
+        "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_ADDRESSES/FeatureServer/0",
+        "catalogueUrl": "https://www.arcgis.com/home/item.html?id=13427dc77da340a29dd6601af4d7484d",
+        "catalogueApiUrl": "https://www.arcgis.com/sharing/rest/content/items/13427dc77da340a29dd6601af4d7484d?f=json",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "termsUrl": "https://www.actmapi.act.gov.au/terms-and-conditions",
+        "attribution": "ACTGOV ADDRESSES from ACTmapi © Australian Capital Territory",
+        "catalogueModifiedAtUtc": "2026-07-24T02:30:13.000Z",
+        "sourceDataEditedAtUtc": "2026-11-19T17:52:50.125Z"
+      },
+      "where": "DIVISION='KINGSTON' AND ASSIGNED='ASSIGNED'",
+      "sourceFields": [
+        "OBJECTID",
+        "ADDRESS_ID",
+        "CRC_ID",
+        "BLOCK_KEY",
+        "DIVISION",
+        "DISTRICT",
+        "SECTION",
+        "BLOCK",
+        "UNITPLAN_NO",
+        "BUILDING_NAME",
+        "BUILDING_NO",
+        "DOOR_NO",
+        "UNIT_TITLE",
+        "UNIT_CLASS",
+        "STREET_NUMBER",
+        "STREET_NAME",
+        "STREET_TYPE",
+        "ASSIGNED",
+        "SUBADDTYPE",
+        "GlobalID"
+      ],
+      "objectIdField": "OBJECTID",
+      "countApiUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_ADDRESSES/FeatureServer/0/query?f=json&where=DIVISION%3D%27KINGSTON%27+AND+ASSIGNED%3D%27ASSIGNED%27&returnCountOnly=true",
+      "idsApiUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_ADDRESSES/FeatureServer/0/query?f=json&where=DIVISION%3D%27KINGSTON%27+AND+ASSIGNED%3D%27ASSIGNED%27&returnIdsOnly=true",
+      "featurePageApiUrls": [
+        "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_ADDRESSES/FeatureServer/0/query?f=geojson&where=DIVISION%3D%27KINGSTON%27+AND+ASSIGNED%3D%27ASSIGNED%27&outFields=OBJECTID%2CADDRESS_ID%2CCRC_ID%2CBLOCK_KEY%2CDIVISION%2CDISTRICT%2CSECTION%2CBLOCK%2CUNITPLAN_NO%2CBUILDING_NAME%2CBUILDING_NO%2CDOOR_NO%2CUNIT_TITLE%2CUNIT_CLASS%2CSTREET_NUMBER%2CSTREET_NAME%2CSTREET_TYPE%2CASSIGNED%2CSUBADDTYPE%2CGlobalID&returnGeometry=true&outSR=4326&orderByFields=OBJECTID+ASC&resultOffset=0&resultRecordCount=1000",
+        "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_ADDRESSES/FeatureServer/0/query?f=geojson&where=DIVISION%3D%27KINGSTON%27+AND+ASSIGNED%3D%27ASSIGNED%27&outFields=OBJECTID%2CADDRESS_ID%2CCRC_ID%2CBLOCK_KEY%2CDIVISION%2CDISTRICT%2CSECTION%2CBLOCK%2CUNITPLAN_NO%2CBUILDING_NAME%2CBUILDING_NO%2CDOOR_NO%2CUNIT_TITLE%2CUNIT_CLASS%2CSTREET_NUMBER%2CSTREET_NAME%2CSTREET_TYPE%2CASSIGNED%2CSUBADDTYPE%2CGlobalID&returnGeometry=true&outSR=4326&orderByFields=OBJECTID+ASC&resultOffset=1000&resultRecordCount=1000",
+        "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_ADDRESSES/FeatureServer/0/query?f=geojson&where=DIVISION%3D%27KINGSTON%27+AND+ASSIGNED%3D%27ASSIGNED%27&outFields=OBJECTID%2CADDRESS_ID%2CCRC_ID%2CBLOCK_KEY%2CDIVISION%2CDISTRICT%2CSECTION%2CBLOCK%2CUNITPLAN_NO%2CBUILDING_NAME%2CBUILDING_NO%2CDOOR_NO%2CUNIT_TITLE%2CUNIT_CLASS%2CSTREET_NUMBER%2CSTREET_NAME%2CSTREET_TYPE%2CASSIGNED%2CSUBADDTYPE%2CGlobalID&returnGeometry=true&outSR=4326&orderByFields=OBJECTID+ASC&resultOffset=2000&resultRecordCount=1000",
+        "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_ADDRESSES/FeatureServer/0/query?f=geojson&where=DIVISION%3D%27KINGSTON%27+AND+ASSIGNED%3D%27ASSIGNED%27&outFields=OBJECTID%2CADDRESS_ID%2CCRC_ID%2CBLOCK_KEY%2CDIVISION%2CDISTRICT%2CSECTION%2CBLOCK%2CUNITPLAN_NO%2CBUILDING_NAME%2CBUILDING_NO%2CDOOR_NO%2CUNIT_TITLE%2CUNIT_CLASS%2CSTREET_NUMBER%2CSTREET_NAME%2CSTREET_TYPE%2CASSIGNED%2CSUBADDTYPE%2CGlobalID&returnGeometry=true&outSR=4326&orderByFields=OBJECTID+ASC&resultOffset=3000&resultRecordCount=1000",
+        "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_ADDRESSES/FeatureServer/0/query?f=geojson&where=DIVISION%3D%27KINGSTON%27+AND+ASSIGNED%3D%27ASSIGNED%27&outFields=OBJECTID%2CADDRESS_ID%2CCRC_ID%2CBLOCK_KEY%2CDIVISION%2CDISTRICT%2CSECTION%2CBLOCK%2CUNITPLAN_NO%2CBUILDING_NAME%2CBUILDING_NO%2CDOOR_NO%2CUNIT_TITLE%2CUNIT_CLASS%2CSTREET_NUMBER%2CSTREET_NAME%2CSTREET_TYPE%2CASSIGNED%2CSUBADDTYPE%2CGlobalID&returnGeometry=true&outSR=4326&orderByFields=OBJECTID+ASC&resultOffset=4000&resultRecordCount=1000"
+      ],
+      "featureCount": 4660,
+      "uniqueObjectIds": 4660,
+      "geometryTypes": {
+        "Point": 4660
+      },
+      "bounds": [
+        149.138271199628,
+        -35.3211139004682,
+        149.153852859765,
+        -35.3101599247265
+      ],
+      "coordinateCount": 4660,
+      "bytes": 2774073,
+      "sha256": "4fc1d5ca9b372e5c04bea5bcd477d66f50c14f6aececa5d229c57b4e07f3605d",
+      "modifications": "Filtered to project extent and selected public attributes. The service emitted longitude/latitude coordinates in WGS84. No vertex simplification. Added cadastreKey where division, section and block are available.",
+      "rewoundRingCount": 0
+    },
+    {
+      "id": "kingston-footprints",
+      "title": "Kingston building footprints",
+      "file": "public/geo/kingston-footprints.geojson",
+      "url": "/geo/kingston-footprints.geojson",
+      "coverage": "The source is incomplete and its lifecycle stages include proposed features. Footprints do not define ownership, occupancy, or individual apartments.",
+      "dataSource": {
+        "publisher": "ACT Government / ACTmapi",
+        "dataset": "ACTGOV_BUILDING_FOOTPRINTS",
+        "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_BUILDING_FOOTPRINTS/FeatureServer/0",
+        "catalogueUrl": "https://www.arcgis.com/home/item.html?id=ec6743ed841841ec83dc6c69c9b80dd9",
+        "catalogueApiUrl": "https://www.arcgis.com/sharing/rest/content/items/ec6743ed841841ec83dc6c69c9b80dd9?f=json",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "termsUrl": "https://www.actmapi.act.gov.au/terms-and-conditions",
+        "attribution": "ACTGOV_BUILDING_FOOTPRINTS from ACTmapi © Australian Capital Territory",
+        "catalogueModifiedAtUtc": "2025-11-05T04:18:36.000Z",
+        "sourceDataEditedAtUtc": "2026-11-12T18:07:27.879Z"
+      },
+      "where": "DIVISION='KINGSTON'",
+      "sourceFields": [
+        "OBJECTID",
+        "ID",
+        "USE_DESCRIPTION",
+        "BUILDING_TYPE",
+        "CURRENT_LIFECYCLE_STAGE",
+        "UNITS_PLAN_NO",
+        "BLOCK",
+        "SECTION",
+        "DISTRICT",
+        "DIVISION",
+        "GlobalID"
+      ],
+      "objectIdField": "OBJECTID",
+      "countApiUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_BUILDING_FOOTPRINTS/FeatureServer/0/query?f=json&where=DIVISION%3D%27KINGSTON%27&returnCountOnly=true",
+      "idsApiUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_BUILDING_FOOTPRINTS/FeatureServer/0/query?f=json&where=DIVISION%3D%27KINGSTON%27&returnIdsOnly=true",
+      "featurePageApiUrls": [
+        "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_BUILDING_FOOTPRINTS/FeatureServer/0/query?f=geojson&where=DIVISION%3D%27KINGSTON%27&outFields=OBJECTID%2CID%2CUSE_DESCRIPTION%2CBUILDING_TYPE%2CCURRENT_LIFECYCLE_STAGE%2CUNITS_PLAN_NO%2CBLOCK%2CSECTION%2CDISTRICT%2CDIVISION%2CGlobalID&returnGeometry=true&outSR=4326&orderByFields=OBJECTID+ASC&resultOffset=0&resultRecordCount=1000"
+      ],
+      "featureCount": 243,
+      "uniqueObjectIds": 243,
+      "geometryTypes": {
+        "Polygon": 233,
+        "MultiPolygon": 10
+      },
+      "bounds": [
+        149.137289888345,
+        -35.3211651247688,
+        149.153416923408,
+        -35.3098752889665
+      ],
+      "coordinateCount": 6021,
+      "bytes": 323566,
+      "sha256": "ed18bc004c02583cca2f2ee239fa1158d2e2a8dacccb4c4c6b55bd377a459940",
+      "modifications": "Filtered to project extent and selected public attributes. The service emitted longitude/latitude coordinates in WGS84. No vertex simplification. Added cadastreKey where division, section and block are available. Reordered polygon rings to RFC 7946 winding while retaining all coordinate positions.",
+      "rewoundRingCount": 269
+    },
+    {
+      "id": "kingston-units",
+      "title": "Kingston Class B unit polygons",
+      "file": "public/geo/kingston-units.geojson",
+      "url": "/geo/kingston-units.geojson",
+      "coverage": "Registered Class B lease footprints from unit plans. The layer does not supply floor-level apartment boundaries.",
+      "dataSource": {
+        "publisher": "ACT Government / ACTmapi",
+        "dataset": "ACTGOV UNIT",
+        "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_UNIT/FeatureServer/0",
+        "catalogueUrl": "https://www.arcgis.com/home/item.html?id=43760387906d4a3dbc63f98f3bd3c9eb",
+        "catalogueApiUrl": "https://www.arcgis.com/sharing/rest/content/items/43760387906d4a3dbc63f98f3bd3c9eb?f=json",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "termsUrl": "https://www.actmapi.act.gov.au/terms-and-conditions",
+        "attribution": "ACTGOV UNIT from ACTmapi © Australian Capital Territory",
+        "catalogueModifiedAtUtc": "2026-02-23T23:53:28.000Z",
+        "sourceDataEditedAtUtc": "2026-11-19T18:01:08.995Z"
+      },
+      "where": "DIVISION_NAME='KINGSTON' AND UNIT_CLASS='B' AND CURRENT_LIFECYCLE_STAGE='REGISTERED'",
+      "sourceFields": [
+        "OBJECTID",
+        "ID",
+        "UNIT_NUMBER",
+        "UNIT_PLAN_NO",
+        "UNIT_ADDRESS",
+        "BLOCK_KEY",
+        "BLOCK",
+        "SECTION",
+        "DIVISION_CODE",
+        "DIVISION_NAME",
+        "DIVISION_SHORT",
+        "DISTRICT_CODE",
+        "DISTRICT_NAME",
+        "DISTRICT_SHORT",
+        "CURRENT_LIFECYCLE_STAGE",
+        "UNIT_CLASS"
+      ],
+      "objectIdField": "OBJECTID",
+      "countApiUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_UNIT/FeatureServer/0/query?f=json&where=DIVISION_NAME%3D%27KINGSTON%27+AND+UNIT_CLASS%3D%27B%27+AND+CURRENT_LIFECYCLE_STAGE%3D%27REGISTERED%27&returnCountOnly=true",
+      "idsApiUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_UNIT/FeatureServer/0/query?f=json&where=DIVISION_NAME%3D%27KINGSTON%27+AND+UNIT_CLASS%3D%27B%27+AND+CURRENT_LIFECYCLE_STAGE%3D%27REGISTERED%27&returnIdsOnly=true",
+      "featurePageApiUrls": [
+        "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_UNIT/FeatureServer/0/query?f=geojson&where=DIVISION_NAME%3D%27KINGSTON%27+AND+UNIT_CLASS%3D%27B%27+AND+CURRENT_LIFECYCLE_STAGE%3D%27REGISTERED%27&outFields=OBJECTID%2CID%2CUNIT_NUMBER%2CUNIT_PLAN_NO%2CUNIT_ADDRESS%2CBLOCK_KEY%2CBLOCK%2CSECTION%2CDIVISION_CODE%2CDIVISION_NAME%2CDIVISION_SHORT%2CDISTRICT_CODE%2CDISTRICT_NAME%2CDISTRICT_SHORT%2CCURRENT_LIFECYCLE_STAGE%2CUNIT_CLASS&returnGeometry=true&outSR=4326&orderByFields=OBJECTID+ASC&resultOffset=0&resultRecordCount=1000"
+      ],
+      "featureCount": 83,
+      "uniqueObjectIds": 83,
+      "geometryTypes": {
+        "Polygon": 83
+      },
+      "bounds": [
+        149.138912431427,
+        -35.3170923832954,
+        149.144680488141,
+        -35.3126854735201
+      ],
+      "coordinateCount": 510,
+      "bytes": 59605,
+      "sha256": "23e5821eaebc8c3db92aaf38b63aa87080debca92d4a8a1e2f3f26250bba02dc",
+      "modifications": "Filtered to project extent and selected public attributes. The service emitted longitude/latitude coordinates in WGS84. No vertex simplification. Added cadastreKey where division, section and block are available. Reordered polygon rings to RFC 7946 winding while retaining all coordinate positions.",
+      "rewoundRingCount": 83
+    }
+  ]
+}
