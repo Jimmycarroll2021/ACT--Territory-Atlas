@@ -33,7 +33,7 @@ button:disabled,select:disabled,input:disabled{cursor:default;opacity:.65}
 .daBlockPicker summary{padding:5px 0;font-size:13px;font-weight:650}
 .daBlockPicker .field{margin-top:6px}
 .daPickerResults:not(:empty){margin-top:10px;padding:0 10px;background:var(--paper);border:1px solid var(--line);border-radius:4px}
-.daInspector{position:absolute;z-index:1;top:65px;left:18px;width:min(340px,calc(100% - 64px));max-height:calc(100% - 124px);overflow:auto;overscroll-behavior:contain;background:var(--paper);border:1px solid #b8a85b;border-top:3px solid #e7b805;border-radius:6px;padding:12px 14px;box-shadow:0 5px 16px #29402a2b;overflow-wrap:anywhere}
+.daInspector{position:absolute;z-index:1;top:65px;left:18px;width:min(340px,calc(100% - 64px));max-height:calc(100% - 140px);overflow:auto;overscroll-behavior:contain;background:var(--paper);border:1px solid #b8a85b;border-top:3px solid #e7b805;border-radius:6px;padding:12px 14px;box-shadow:0 5px 16px #29402a2b;overflow-wrap:anywhere}
 .mapArea:has(.daInspector:not([hidden])) .maplibregl-ctrl-bottom-right{left:0;display:flex;flex-direction:column;align-items:flex-end}
 .mapArea:has(.daInspector:not([hidden])) .maplibregl-ctrl-bottom-right .maplibregl-ctrl-attrib{order:1;max-width:calc(100% - 136px);box-sizing:border-box}
 .mapTop{z-index:2}
@@ -54,8 +54,9 @@ button:disabled,select:disabled,input:disabled{cursor:default;opacity:.65}
 .daDetailList ul li+li{margin-top:4px}
 .daAttribution{margin:0 0 9px;padding-top:7px;border-top:1px solid var(--line)}
 @media(max-width:730px){
-  .daInspector{top:47px;left:8px;width:min(340px,calc(100% - 54px));max-height:calc(100% - 110px);padding:8px 11px}
+  .daInspector{top:47px;left:8px;width:min(340px,calc(100% - 54px));max-height:calc(100% - 137px);padding:8px 11px}
+  .mapArea:has(.daInspector:not([hidden])) .maplibregl-ctrl-bottom-right .maplibregl-ctrl-attrib{line-height:1.5}
 }
 @media(max-width:360px){
-  .daInspector{max-height:calc(100% - 132px)}
+  .daInspector{max-height:calc(100% - 153px)}
 }

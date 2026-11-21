@@ -30,7 +30,11 @@ type ApplicationDetail = {
   stage: string | null
   decision: string | null
   questions: string[]
+  assessmentFacts?: unknown
+  decisionDocument?: unknown
 }
+type AssessmentFact = {text: string; documentTitle: string; page: number; documentUrl: string}
+type DecisionDocument = {title: string; date: string; url: string}
 type ApplicationDetails = {
   checkedAt: string
   sourceName: string
@@ -145,8 +149,9 @@ function stale(snapshotDate: string): boolean {
   return Date.parse(`${parts.year}-${parts.month}-${parts.day}`) - Date.parse(snapshotDate) > 7 * 86400000
 }
 
-function link(url: string, label: string): string {
-  return `<a class="sourceLink" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`
+function link(url: string, label: string, accessibleLabel?: string): string {
+  const ariaLabel = accessibleLabel ? ` aria-label="${esc(accessibleLabel)}"` : ''
+  return `<a class="sourceLink" href="${esc(url)}" target="_blank" rel="noopener noreferrer"${ariaLabel}>${esc(label)}</a>`
 }
 
 function dateLabel(value: string | null): string {
@@ -231,6 +236,28 @@ function validDetail(row: unknown): row is ApplicationDetail {
     textOrNull(row.proposedWorks) && textOrNull(row.stage) && textOrNull(row.decision) && strings(row.questions)
 }
 
+function validAssessmentFact(value: unknown): value is AssessmentFact {
+  return record(value) && typeof value.text === 'string' && !!value.text.trim() &&
+    typeof value.documentTitle === 'string' && !!value.documentTitle.trim() &&
+    typeof value.page === 'number' && Number.isSafeInteger(value.page) && value.page > 0 &&
+    secureUrl(value.documentUrl)
+}
+
+function validDecisionDocument(value: unknown): value is DecisionDocument {
+  return record(value) && typeof value.title === 'string' && !!value.title.trim() &&
+    date(value.date) && secureUrl(value.url)
+}
+
+function assessmentContent(facts: readonly AssessmentFact[]): string {
+  if (!facts.length) return ''
+  const items = facts.map(fact => {
+    const pageUrl = new URL(fact.documentUrl)
+    pageUrl.hash = `page=${fact.page}`
+    return `<li>${esc(fact.text)} ${link(pageUrl.href, `PDF p. ${fact.page}`, `${fact.documentTitle}, page ${fact.page}`)}</li>`
+  })
+  return `<h5>What the decision says about nearby effects</h5><ul>${items.join('')}</ul>`
+}
+
 export function applicationDetailsContent(numbers: readonly string[], loading: boolean): string {
   if (!applications) return state('Development application data unavailable.')
   const {applications: byNumber, snapshotDate, sourceUrls} = applications
@@ -239,23 +266,34 @@ export function applicationDetailsContent(numbers: readonly string[], loading: b
     if (!validApplication(app, number)) return ''
     const raw = applicationDetails?.records[number]
     const detail = validDetail(raw) ? raw : undefined
-    const matched = detail?.status === 'matched' && detail.confidence === 'high' && detail.proposedWorks
+    const proposal = detail?.status === 'matched' && detail.confidence === 'high' ? detail.proposedWorks : null
     const source = detail?.sourceUrl ?? applicationDetails?.sourceUrl ?? sourceUrls[app.status]
     const sourceName = applicationDetails?.sourceName ?? 'ACTmapi application data'
     const snapshotStatus = app.status === 'active' ? 'Active in map snapshot' : 'Completed in map snapshot'
     const status = detail?.stage?.trim() || snapshotStatus
     const decision = detail?.decision?.trim() || app.decision
+    const conditional = /^approval conditional$|^conditional approval$/i.test(decision ?? '')
+    const approved = conditional || /^approved$/i.test(decision ?? '')
+    const decisionLabel = conditional ? 'Conditional approval' : decision
+    const decisionDocument = proposal && validDecisionDocument(detail?.decisionDocument) ? detail.decisionDocument : undefined
+    const decisionDate = decisionDocument?.date ?? app.decisionDate
+    const decisionSource = decisionDocument ? `<p>${link(decisionDocument.url, decisionDocument.title)}</p>` : ''
     const dates = `Map snapshot ${dateLabel(snapshotDate)}`
     const checked = detail && applicationDetails ? ` · Records checked ${dateLabel(applicationDetails.checkedAt)}` : ''
-    const questions = matched && detail.questions.filter(question => question.trim())
-    const works = matched ? `<p>${esc(detail.proposedWorks)}</p>` : '<p>Proposal and potential impact details are unavailable.</p>'
-    const nearby = questions && questions.length ? '<h5>What to check nearby</h5>' +
-      '<p class="notice">Questions to investigate. Local effects are unverified.</p>' +
+    const questions = proposal ? detail?.questions.filter(question => question.trim()) : undefined
+    const assessment = proposal && Array.isArray(detail?.assessmentFacts) ?
+      assessmentContent(detail.assessmentFacts.filter(validAssessmentFact)) : ''
+    const works = proposal ? `<h5>${approved ? 'Approved proposal' : 'Proposal'}</h5><p>${esc(proposal)}</p>` :
+      '<p>Proposal and potential impact details are unavailable.</p>'
+    const construction = approved && (decisionDocument || assessment) ? '<p class="notice">Construction status is unknown.</p>' : ''
+    const nearby = questions?.length ? '<h5>What to check nearby</h5>' +
+      (assessment ? '' : '<p class="notice">Questions to investigate. Local effects are unverified.</p>') +
       `<ul>${questions.map(question => `<li>${esc(question)}</li>`).join('')}</ul>` :
-      matched ? '<p class="notice">Nearby effects are unverified.</p>' : ''
-    return `<li><h4>DA ${esc(number)}</h4><p class="notice">${esc(status)}${decision ? ` · Decision ${esc(decision)}` : ''}</p>` +
-      `${loading ? state('Loading proposal details…') : works + nearby}<p class="notice">${dates}${checked}</p>` +
-      `<p>${link(source, `Official source · ${sourceName}`)}</p></li>`
+      proposal && !assessment ? '<p class="notice">Nearby effects are unverified.</p>' : ''
+    return `<li><h4>DA ${esc(number)}</h4><p class="notice">${esc(status)}${decisionLabel ? ` · ${esc(decisionLabel)}` : ''}` +
+      `${decisionDate ? ` · Decision ${dateLabel(decisionDate)}` : ''}</p>` +
+      `${loading ? state('Loading proposal details…') : works + construction + assessment + nearby + decisionSource}` +
+      `<p class="notice">${dates}${checked}</p><p>${link(source, `Official source · ${sourceName}`)}</p></li>`
   }).join('')
   const attribution = applicationDetails ? `<p class="notice daAttribution">${esc(applicationDetails.attribution)} ` +
     `${link(applicationDetails.termsUrl, 'ACTmapi terms of use')}</p>` : ''
@@ -327,7 +365,7 @@ export function showPlanning(container: HTMLElement, block: Item | undefined, ho
     if (!container.isConnected) return
     const match = applicationMatch(key)
     const linkedBlocks = applicationBlocks(match)
-    const mapKey = linkedBlocks.size ? '<p class="notice planningMapKey"><span class="swatch application" aria-hidden="true"></span>Hover over or tap a yellow block to see its proposals and what to check nearby.</p><div id="applicationBlockList"></div>' : ''
+    const mapKey = linkedBlocks.size ? '<p class="notice planningMapKey"><span class="swatch application" aria-hidden="true"></span>Hover over or tap a yellow block to see its proposals and nearby effects.</p><div id="applicationBlockList"></div>' : ''
     const retry = !loading && (!zoning || !applications) ? '<button class="retry">Retry planning data</button>' : ''
     container.innerHTML = `<p class="bodyText">${scope}${home ? ' · parent block' : ''}</p>` +
       '<p class="notice">Check the official records for current zoning, permissions and application decisions.</p>' +

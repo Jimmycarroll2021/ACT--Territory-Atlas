@@ -4,9 +4,13 @@ The detail file adds reviewed proposal summaries to the exact DA inventory named
 
 ## Coverage
 
-The first capture returned 80 rows for 71 distinct requested numbers. We published 46 reviewed, single-row matches. Eight numbers had no match. Sixteen returned multiple rows including amendments and conflicting stages. Those rows remain ambiguous. One description (202544528) referred to both demolition of the house and two extensions to that same house. It remains unreviewed pending clearer evidence. The count of 71 describes the map's inventory, not all applications lodged in Kingston.
+The capture returned 80 rows for the map's 71 DA numbers. Of the 47 reviewed matches, 46 had a single row. DA 202442858 had three rows (original, S168D and S168G) and a reviewed remitted decision. Fifteen other numbers had multiple rows and remain ambiguous. Eight had no match. One description (202544528) referred to both demolition of the house and two extensions to that same house. It remains unreviewed pending clearer evidence.
 
-“High” confidence describes the match between a single source proposal and its reviewed factual summary. It does not establish the works were built or predict any effects on neighbouring properties. A question invites the reader to check a specific feature of the proposal against the application plans. An empty question list means impacts have not been assessed.
+“High” confidence describes the match between the reviewed source evidence and the factual summary. Construction progress and observed effects require separate evidence. Questions invite the reader to check specific features against the plans.
+
+For a reviewed amendment, the build verifies a SHA-256 digest of the entire sorted set of captured rows, including duplicates, amendment identifiers, stages, decisions and proposal-text digests. A changed row, missing row or extra row suppresses the summary, decision and assessment facts. The review records the outcome of the signed decision explicitly. The build never ranks amendment suffixes or carries forward an original approval across amendments.
+
+For DA 202442858 the Territory Planning Authority's [17 March 2026 remitted decision](https://dafinder.blob.core.windows.net/dadocuments/DOCs/NOTICEOFDECISION-202442858-REMITTED-SIGNED.pdf) substitutes its 26 June 2025 decision. The [17 April 2026 S187H endorsement](https://dafinder.blob.core.windows.net/dadocuments/DOCs/NOTICEOFDECISION-202442858-S187H-ENDORSEMENT-SIGNED.pdf) concerns condition 2(a)(i). The public facts cite the relevant document and page. The reviewed PDF SHA-256 digests are `e721ab177b2a0a2c99fa7a244588512f79d8aa0ec3a64fd123f95091462ec68a` and `9589d710d5383126fdafda07e7c5d1d8853be8b65a87b6f286106c12ba44272a`, respectively. Replay checks captured DA Finder rows. Rechecking the linked PDFs for replacement requires a separate document review.
 
 ## Official source and reuse
 

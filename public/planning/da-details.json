@@ -487,14 +487,59 @@
       "status": "matched"
     },
     "202442858": {
-      "confidence": "unknown",
-      "decision": null,
-      "proposedWorks": null,
-      "questions": [],
+      "assessmentFacts": [
+        {
+          "documentTitle": "Territory Planning Authority remitted decision, 17 March 2026",
+          "documentUrl": "https://dafinder.blob.core.windows.net/dadocuments/DOCs/NOTICEOFDECISION-202442858-REMITTED-SIGNED.pdf",
+          "page": 1,
+          "text": "The Authority conditionally approved the amended plans on 17 March 2026. This decision replaces the one made on 26 June 2025."
+        },
+        {
+          "documentTitle": "Territory Planning Authority remitted decision, 17 March 2026",
+          "documentUrl": "https://dafinder.blob.core.windows.net/dadocuments/DOCs/NOTICEOFDECISION-202442858-REMITTED-SIGNED.pdf",
+          "page": 15,
+          "text": "The Authority counted the enclosed rooftop toilet and lift lobby as a fifth storey. It considered their small size and position back from the edge appropriate for this site."
+        },
+        {
+          "documentTitle": "Territory Planning Authority remitted decision, 17 March 2026",
+          "documentUrl": "https://dafinder.blob.core.windows.net/dadocuments/DOCs/NOTICEOFDECISION-202442858-REMITTED-SIGNED.pdf",
+          "page": 15,
+          "text": "The plans provide 68 on-site parking spaces. The Authority accepted 18 fewer than the nominal requirement of 86, citing access to public transport, walking and cycling."
+        },
+        {
+          "documentTitle": "Territory Planning Authority remitted decision, 17 March 2026",
+          "documentUrl": "https://dafinder.blob.core.windows.net/dadocuments/DOCs/NOTICEOFDECISION-202442858-REMITTED-SIGNED.pdf",
+          "page": 4,
+          "text": "Traffic advice anticipated 17 short-term spaces on the street for health facility visitors. Changes to street parking require further endorsement."
+        },
+        {
+          "documentTitle": "Territory Planning Authority remitted decision, 17 March 2026",
+          "documentUrl": "https://dafinder.blob.core.windows.net/dadocuments/DOCs/NOTICEOFDECISION-202442858-REMITTED-SIGNED.pdf",
+          "page": 14,
+          "text": "The Authority found that the proposed height, setbacks and overshadowing met the applicable requirements."
+        },
+        {
+          "documentTitle": "Territory Planning Authority condition endorsement, 17 April 2026",
+          "documentUrl": "https://dafinder.blob.core.windows.net/dadocuments/DOCs/NOTICEOFDECISION-202442858-S187H-ENDORSEMENT-SIGNED.pdf",
+          "page": 1,
+          "text": "The April endorsement confirms that the plans satisfy condition 2(a)(i) on identifying community-use areas. Whether construction has started remains unverified."
+        }
+      ],
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "decisionDocument": {
+        "date": "2026-03-17",
+        "title": "Territory Planning Authority remitted decision, 17 March 2026",
+        "url": "https://dafinder.blob.core.windows.net/dadocuments/DOCs/NOTICEOFDECISION-202442858-REMITTED-SIGNED.pdf"
+      },
+      "proposedWorks": "The approval allows demolition of the existing building and construction of a four-storey building with a habitable rooftop and three basement levels. The plans include car parking, a driveway crossing and landscaping. The lease must reserve at least 1,931 m² for community use and excludes early childhood education and care.",
+      "questions": [
+        "Where do the roof garden, driveway and proposed visitor parking sit in relation to the property you are considering?"
+      ],
       "sourceQuote": null,
       "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202442858&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
-      "stage": null,
-      "status": "ambiguous"
+      "stage": "Decided",
+      "status": "matched"
     },
     "202443108": {
       "confidence": "high",

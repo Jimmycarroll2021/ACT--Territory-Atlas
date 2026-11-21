@@ -98,26 +98,55 @@ def capture(snapshot, numbers):
             "itemId": ITEM, "lastEditMs": stamp, "rows": rows}
 
 
+def check_copy(number, texts):
+    if any(not isinstance(t, str) or not t or len(t) > 400 or CONTACT.search(t) for t in texts):
+        raise ValueError(f"Check editorial copy for DA {number}")
+
+
+def reviewed_documents(number, review):
+    document = review["decisionDocument"]
+    facts = review["assessmentFacts"]
+    if (set(document) != {"title", "url", "date"} or not facts
+            or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", document["date"])):
+        raise ValueError("Invalid decision document")
+    check_copy(number, [document["title"]])
+    urls = [document["url"]]
+    for fact in facts:
+        if (set(fact) != {"text", "documentTitle", "page", "documentUrl"}
+                or type(fact["page"]) is not int or fact["page"] < 1):
+            raise ValueError("Invalid assessment fact")
+        check_copy(number, [fact["text"], fact["documentTitle"]])
+        urls.append(fact["documentUrl"])
+    prefix = f"https://dafinder.blob.core.windows.net/dadocuments/DOCs/NOTICEOFDECISION-{number}-"
+    if not all(url.startswith(prefix) and re.fullmatch(r"[A-Z0-9-]+\.pdf", url[len(prefix):]) for url in urls):
+        raise ValueError("Unexpected official decision URL")
+    return {"decisionDocument": document, "assessmentFacts": facts}
+
+
 def detail(number, rows, review):
     params = {"where": f"DA_NUMBER={number}", "outFields": ",".join(FIELDS), "returnGeometry": "false", "f": "pjson"}
     result = {"status": "unavailable", "confidence": "unknown", "proposedWorks": None, "sourceQuote": None,
               "questions": [], "stage": None, "decision": None, "sourceUrl": LAYER + "/query?" + urlencode(params)}
     if not rows:
         return result
-    if len(rows) != 1:
-        result["status"] = "ambiguous"
-        return result
-    row = rows[0]
-    if not review or row["proposalSha256"] != review["proposalSha256"]:
-        result["status"] = "unreviewed"
-        return result
-    if row["stage"] not in STAGES or row["decision"] not in DECISIONS:
+    if len(rows) > 1 or (review and "rowSetSha256" in review):
+        signature = hashlib.sha256(encode(sorted(rows, key=encode))).hexdigest()
+        if not review or signature != review.get("rowSetSha256"):
+            result["status"] = "ambiguous" if len(rows) > 1 else "unreviewed"
+            return result
+        result.update(reviewed_documents(number, review))
+        stage, decision = review["stage"], review["decision"]
+    else:
+        row = rows[0]
+        if not review or row["proposalSha256"] != review["proposalSha256"]:
+            result["status"] = "unreviewed"
+            return result
+        stage, decision = row["stage"], row["decision"]
+    if stage not in STAGES or decision not in DECISIONS:
         raise ValueError("Unexpected review evidence")
-    copy = [review["proposedWorks"], *review["questions"]]
-    if any(not isinstance(t, str) or not t or len(t) > 400 or CONTACT.search(t) for t in copy):
-        raise ValueError(f"Check editorial copy for DA {number}")
-    return {**result, "status": "matched", "confidence": "high", "stage": row["stage"],
-            "decision": row["decision"], "proposedWorks": review["proposedWorks"], "questions": review["questions"]}
+    check_copy(number, [review["proposedWorks"], *review["questions"]])
+    return {**result, "status": "matched", "confidence": "high", "stage": stage,
+            "decision": decision, "proposedWorks": review["proposedWorks"], "questions": review["questions"]}
 
 
 def build(evidence, snapshot, numbers):
