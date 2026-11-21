@@ -1,0 +1,749 @@
+{
+  "attribution": "ACTGOV_DAFINDER_LIST_VIEW from ACTmapi © Australian Capital Territory. Proposal descriptions are factual summaries.",
+  "checkedAt": "2026-11-21",
+  "records": {
+    "201732582": {
+      "confidence": "high",
+      "decision": "Refused",
+      "proposedWorks": "The amendment seeks to remove the Crown lease's concessional status. It supplies a revised lease valuation and a new social impact assessment.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D201732582&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202037905": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The lease change would end its concessional status and remove the requirement for an association to occupy the site.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202037905&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202139248": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202139248&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "unavailable"
+    },
+    "202139310": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The proposal encloses the outdoor terrace on the north side of the ground floor with glass, side walls and a metal roof.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202139310&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202139336": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "Changes to the north wall of a seventh-floor rooftop lounge would bring the terrace into the building's internal floor-area calculation.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202139336&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202139372": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202139372&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "ambiguous"
+    },
+    "202139375": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The proposal replaces the existing building with four storeys of shops, offices and community space. It includes road reserve works and changes to lease rules on uses, floor area and parking.",
+      "questions": [
+        "Where do the road reserve works sit relative to nearby entrances?"
+      ],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202139375&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202139421": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "Part of the commercial building would be demolished to create a new entrance with new signs.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202139421&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202139431": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The lease change would allow up to 100 square metres of non-retail commercial space.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202139431&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202139437": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202139437&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "unavailable"
+    },
+    "202139682": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The lease change would remove permission for housing and non-retail commercial uses.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202139682&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202139700": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The warehouse would gain a south-side awning. The car park changes would remove three spaces.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202139700&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202139732": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202139732&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "ambiguous"
+    },
+    "202139739": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The proposal divides one Crown lease over five blocks into two leases and adds an illuminated sign.",
+      "questions": [
+        "Which direction would the sign face?"
+      ],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202139739&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202239814": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The application seeks retrospective approval for interior and shopfront renovations and a change in the building's classification to Class 9b.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202239814&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202240072": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202240072&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "unavailable"
+    },
+    "202240150": {
+      "confidence": "high",
+      "decision": "Refused",
+      "proposedWorks": "The application proposed building a warehouse.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202240150&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202240467": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "A recreation facility would replace its fence and path, add accessible and service gates, and carry out landscaping.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202240467&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202240834": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "A glass roof would replace the outdoor dining awning. The proposal also adds screens, signs, a pedestrian bridge and outdoor lighting.",
+      "questions": [
+        "Which way would the outdoor lights face?"
+      ],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202240834&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202240921": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The proposal replaces the video replay board with an LED board, including supports, cabling and production equipment.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202240921&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202241015": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The commercial building would undergo partial demolition and internal renovations, with a new shopfront and signs.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202241015&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202241045": {
+      "confidence": "high",
+      "decision": "Withdrawn",
+      "proposedWorks": "The proposal would split one block in two and allow two homes on the smaller parcel.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202241045&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202241157": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202241157&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "unavailable"
+    },
+    "202241246": {
+      "confidence": "high",
+      "decision": "Refused",
+      "proposedWorks": "The proposal sought to enlarge an existing mezzanine by 21 square metres and add three skylights.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202241246&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202341347": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The proposal adds one lit sign, an unlit sign on the front of the building and two unlit poster frames.",
+      "questions": [
+        "Where would the sign's downlights point?"
+      ],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202341347&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202341403": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The proposal includes 403 apartments across 11 buildings of three or four storeys, plus five four-storey townhouses. It includes basement parking, ground-floor commercial space and new driveways.",
+      "questions": [
+        "Where are the proposed driveways and how close are the buildings to the site boundary?"
+      ],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202341403&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202341556": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202341556&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "unavailable"
+    },
+    "202341563": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202341563&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "unavailable"
+    },
+    "202341650": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202341650&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "unavailable"
+    },
+    "202341709": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202341709&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "unavailable"
+    },
+    "202341836": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202341836&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "ambiguous"
+    },
+    "202341933": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202341933&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "ambiguous"
+    },
+    "202341959": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "Two vehicle-washing bays would be added to the existing basement car park.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202341959&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202341961": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The proposal converts part of a commercial building into a gym. It includes a lease change and eight external signs, three of them lit.",
+      "questions": [
+        "Which direction would the three illuminated signs face?"
+      ],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202341961&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202341967": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202341967&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "ambiguous"
+    },
+    "202341995": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The substation proposal adds protective walls near an existing transformer, outdoor lighting and changes to services.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202341995&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202342032": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202342032&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "ambiguous"
+    },
+    "202342057": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "One Crown lease would be split into two so each existing block has its own lease.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202342057&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202342067": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The application proposes installing a sculpture.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202342067&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202342071": {
+      "confidence": "high",
+      "decision": "Refused",
+      "proposedWorks": "The proposal sought to replace the existing structures with a four-storey building containing 57 serviced and 54 residential apartments, basement parking and a new driveway.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202342071&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202342317": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "Two units would undergo partial demolition and internal changes. The proposal adds an atrium, an open pergola, rooftop windows and solar panels.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202342317&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202342496": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The site would gain three single-storey warehouses, parking and landscaping.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202342496&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202342528": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "A commercial tenancy would gain a lit awning sign and seven window signs.",
+      "questions": [
+        "Which way would the awning sign face?"
+      ],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202342528&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202342578": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The house proposal includes demolition work, a permeable driveway, a two-car carport, a pool, windows, an entry awning and landscaping.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202342578&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202442736": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The lease change would allow an indoor recreation facility and support a change in the building's classification to Class 9b.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202442736&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202442776": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202442776&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "ambiguous"
+    },
+    "202442777": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The home would gain a lift and an electric fireplace. An existing door would be removed for lift access and the water tank moved.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202442777&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202442858": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202442858&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "ambiguous"
+    },
+    "202443108": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The proposal involves partially demolishing and reinstating the house, adding a garage and driveway, and landscaping.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202443108&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202443131": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202443131&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "ambiguous"
+    },
+    "202443182": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202443182&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "ambiguous"
+    },
+    "202443506": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The lease changes would give each of two Kingston blocks a right of access across the other.",
+      "questions": [
+        "Where do the access routes cross each block?"
+      ],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202443506&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202443642": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The application seeks a fresh approval after an earlier approval lapsed. It proposes a two-storey home with an attached garage, pool and landscaping.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202443642&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202443708": {
+      "confidence": "high",
+      "decision": null,
+      "proposedWorks": "The house extension includes partial demolition, removing the chimney and power pole, moving electrical services underground and adding an arbour.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202443708&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Under Assessment",
+      "status": "matched"
+    },
+    "202543802": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "A new single-storey hall would replace the parish hall. The proposal includes removing trees and landscaping.",
+      "questions": [
+        "Which trees do the plans identify for removal?"
+      ],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202543802&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202543897": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The commercial building would receive replacement awnings and shopfront glass, new signs and changes to the wall colours. Some internal walls would be removed.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202543897&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202544061": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202544061&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "ambiguous"
+    },
+    "202544133": {
+      "confidence": "high",
+      "decision": "Refused",
+      "proposedWorks": "The application sought retrospective approval for a fence with gate access.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202544133&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202544290": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202544290&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "ambiguous"
+    },
+    "202544308": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202544308&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "ambiguous"
+    },
+    "202544372": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The lease change would permit a health facility in one unit and raise the combined floor-area limit for community and shop uses from 2,175 to 2,296 square metres.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202544372&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202544387": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The proposal adds a sewage pump station and underground sewer main, with fencing, tree removal, earthworks and landscaping.",
+      "questions": [
+        "Where do the plans locate the pump station and the pipeline?"
+      ],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202544387&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202544528": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202544528&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "unreviewed"
+    },
+    "202544539": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The existing courtyard wall would be removed and replaced with a new wall and gate.",
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202544539&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202544748": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202544748&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "ambiguous"
+    },
+    "202645034": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The proposal removes the existing courtyard wall, gate and garden bed, then builds a new wall and gate and landscapes the area.",
+      "questions": [
+        "Where would the replacement wall sit, and how high would it be?"
+      ],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202645034&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202645057": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202645057&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "ambiguous"
+    },
+    "202645379": {
+      "confidence": "high",
+      "decision": "Approval Conditional",
+      "proposedWorks": "The sports oval lighting upgrade adds two light poles and a scoreboard.",
+      "questions": [
+        "Where would the poles stand, and which way would the lights point?"
+      ],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202645379&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Decided",
+      "status": "matched"
+    },
+    "202645447": {
+      "confidence": "unknown",
+      "decision": null,
+      "proposedWorks": null,
+      "questions": [],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202645447&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": null,
+      "status": "ambiguous"
+    },
+    "202645536": {
+      "confidence": "high",
+      "decision": null,
+      "proposedWorks": "The lease change would allow a health facility on the ground floor. The proposal specifies no construction work.",
+      "questions": [
+        "Does the application give operating hours or access arrangements for a future health facility?"
+      ],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202645536&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "Under Assessment",
+      "status": "matched"
+    },
+    "202645688": {
+      "confidence": "high",
+      "decision": null,
+      "proposedWorks": "The school proposal replaces existing structures with a single-storey hall and a three-storey learning building. It changes parking, removes trees and relocates a bus stop and pedestrian crossing.",
+      "questions": [
+        "Where would the relocated bus stop, pedestrian crossing and driveway be?"
+      ],
+      "sourceQuote": null,
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0/query?where=DA_NUMBER%3D202645688&outFields=DA_NUMBER%2CAMENDMENT_VERSION%2CDA_STAGE%2CDECISION%2CPROPOSAL_TEXT&returnGeometry=false&f=pjson",
+      "stage": "On notification",
+      "status": "matched"
+    }
+  },
+  "schemaVersion": 1,
+  "snapshotId": "96fa73950bef6d7d745f995812ccc28f49f7e05735df0ef76df7ab2ef8d0659b",
+  "sourceName": "ACTmapi DA Finder · Australian Capital Territory",
+  "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/ArcGIS/rest/services/ACTGOV_DAFINDER_LIST_VIEW/FeatureServer/0",
+  "termsUrl": "https://www.actmapi.act.gov.au/terms-and-conditions"
+}

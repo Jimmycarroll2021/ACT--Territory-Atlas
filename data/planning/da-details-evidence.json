@@ -1,0 +1,622 @@
+{
+  "checkedAt": "2026-11-21",
+  "itemId": "5481eb81cb5e4634b20b51ecc72a778a",
+  "lastEditMs": 1795182176586,
+  "rows": {
+    "201732582": [
+      {
+        "amendment": "S144C",
+        "decision": "Refused",
+        "proposalSha256": "ff51645b3644058ebd1c0b734fbc0e3a6aabc2c587f66bf23b676d92148530dc",
+        "stage": "Decided"
+      }
+    ],
+    "202037905": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "62aa37e9b7d55bd839fb56bf83a8aea1184b2c675654d063f8d2915f5c2de7f2",
+        "stage": "Decided"
+      }
+    ],
+    "202139248": [],
+    "202139310": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "c9db9e395ebdb4f4dcd10d889d3a137b0cd8365de622ca624bdb3c7e5d07319a",
+        "stage": "Decided"
+      }
+    ],
+    "202139336": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "e4b83b82b2f15df0682c398c43de5e66a7c05896e19226f805110ab0748f40be",
+        "stage": "Decided"
+      }
+    ],
+    "202139372": [
+      {
+        "amendment": "S197G",
+        "decision": "Approval Conditional",
+        "proposalSha256": "c75716d976fce0264c25b4be0ecb34db66b7ed99364b7e7170394d91730af760",
+        "stage": "Decided"
+      },
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "45a51221f1b7aee6cc4a1124a47acddbc4c01de4a9b8b26be3f9e917a2dd1632",
+        "stage": "Decided"
+      }
+    ],
+    "202139375": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "1a537dbf960f4c2dc4ccd6f46cce3df6af64a913797587164eeab4cfa452987e",
+        "stage": "Decided"
+      }
+    ],
+    "202139421": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "e37a534aff0b6c7faad1eeaa0ea824bb3362448a925a5ee566b0427d48ce2dc3",
+        "stage": "Decided"
+      }
+    ],
+    "202139431": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "d9d63f888a4039990a31a8afb54951907e6a1fcb5fc614085dcaa04b395f41d7",
+        "stage": "Decided"
+      }
+    ],
+    "202139437": [],
+    "202139682": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "30f0f07e6c2ee9ee16efa3d188e979651c5649f617f1adc016f1be8fcc0812b4",
+        "stage": "Decided"
+      }
+    ],
+    "202139700": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "501a4fa1704f646065aefa4007d72da266f76f9542721a94ccfc1d0f7c418f3b",
+        "stage": "Decided"
+      }
+    ],
+    "202139732": [
+      {
+        "amendment": "S205C",
+        "decision": null,
+        "proposalSha256": "6c687300fe421810f4d3a98da2a5d8a02ce1420311a3217027944d0128c21b27",
+        "stage": "Under Assessment"
+      },
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "6105fd068a817b05f2b78cf52cc7fd92100b9a6c36e581f73390cc99573c220c",
+        "stage": "Decided"
+      }
+    ],
+    "202139739": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "d6a7399139416d342b8633708aca79142c9bfc7e29f36fab7c13cead3bbb17b4",
+        "stage": "Decided"
+      }
+    ],
+    "202239814": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "e47eee89d6683fff9d1c6e47fb9ea3664031f8786c1b633dea406ce60ddbdd4c",
+        "stage": "Decided"
+      }
+    ],
+    "202240072": [],
+    "202240150": [
+      {
+        "amendment": null,
+        "decision": "Refused",
+        "proposalSha256": "84104e492588ab4bafeea008f9f75fd2a371a56ecb66825a198acc6f6327cebf",
+        "stage": "Decided"
+      }
+    ],
+    "202240467": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "d8ab0c834f49fdab76ce3b9ac708033868ea54df0fe9a886a7fdc8b55c5130ea",
+        "stage": "Decided"
+      }
+    ],
+    "202240834": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "7dbb21ce6069b11313d771f3030a5630b7221e5a529a3bf83941a02b99554729",
+        "stage": "Decided"
+      }
+    ],
+    "202240921": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "62c1f7c3732f9d2a8621b128355a588872a0fbb71b46d290da7cdcb216a32564",
+        "stage": "Decided"
+      }
+    ],
+    "202241015": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "cb018a733b12328cc54181b021907d971dd37ee5d7350e549d3efd08b4a39ef4",
+        "stage": "Decided"
+      }
+    ],
+    "202241045": [
+      {
+        "amendment": null,
+        "decision": "Withdrawn",
+        "proposalSha256": "351b7a2390045f8d0452177babf70b2eba00b53556ca4222952682527b883897",
+        "stage": "Decided"
+      }
+    ],
+    "202241157": [],
+    "202241246": [
+      {
+        "amendment": null,
+        "decision": "Refused",
+        "proposalSha256": "828b18ffd32aed3dffe8d05324a82ef6a4302652fed0dab8062a4ec041c9c01e",
+        "stage": "Decided"
+      }
+    ],
+    "202341347": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "f0cc40417a5ea0c997fe4054a6631beddd1da41c6dad67459e088a74a7368e9e",
+        "stage": "Decided"
+      }
+    ],
+    "202341403": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "39da06d8a0c34cb6add36dfa082c7e059b4c5c4ee6e083ba25a28c5e82206e70",
+        "stage": "Decided"
+      }
+    ],
+    "202341556": [],
+    "202341563": [],
+    "202341650": [],
+    "202341709": [],
+    "202341836": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "4298727d00fa1efa36c6125c259f870e85e4d9ea6a723460617c3c2d82b89c21",
+        "stage": "Decided"
+      },
+      {
+        "amendment": null,
+        "decision": null,
+        "proposalSha256": "4298727d00fa1efa36c6125c259f870e85e4d9ea6a723460617c3c2d82b89c21",
+        "stage": "Under Assessment"
+      }
+    ],
+    "202341933": [
+      {
+        "amendment": "S205B",
+        "decision": null,
+        "proposalSha256": "1a02264e8a61ed5f1b080881c6904cda82b9403c712e588918830961a9a438f0",
+        "stage": "Decided"
+      },
+      {
+        "amendment": "S205C",
+        "decision": null,
+        "proposalSha256": "174a0345cc2e6ea97cfe6c2affc1d08795f1c1215c1ae26c4dfd1b737f40e329",
+        "stage": "Decided"
+      }
+    ],
+    "202341959": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "c7c6a57fbedb349579b50525e46977ebdb301289f202f43c0aee3d71cfdc073d",
+        "stage": "Decided"
+      }
+    ],
+    "202341961": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "16f739274e3e259b56a27eadd72ecf7185e0ed04164da832533585131aa67318",
+        "stage": "Decided"
+      }
+    ],
+    "202341967": [
+      {
+        "amendment": "S205D",
+        "decision": null,
+        "proposalSha256": "b09ec48117ccd391be66b363c003aa44589da9b7d576e49707fe101733592e47",
+        "stage": "Decided"
+      },
+      {
+        "amendment": "S205F",
+        "decision": null,
+        "proposalSha256": "e50713d26945c3192d0177086989639c79232c4ae913fc257ae36535ff4ba284",
+        "stage": "Decided"
+      }
+    ],
+    "202341995": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "ccab6ec5aada727aee685f07a34e0d1acccc06bdc5e2ca0840d595f7912a8640",
+        "stage": "Decided"
+      }
+    ],
+    "202342032": [
+      {
+        "amendment": "S205A",
+        "decision": null,
+        "proposalSha256": "3e133469c1d1b7985ce79fc92e6ca5aaac0230ebbc5000c797d631098b0f20ee",
+        "stage": "Decided"
+      },
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "c4ad8c3d0ec1bc5fad09f6d29469111b0f1769577618693a923359963722da4c",
+        "stage": "Decided"
+      }
+    ],
+    "202342057": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "9d4a63a809da575a07eda36e344e1c33ce6746be44d501f861b63fd2c6019da7",
+        "stage": "Decided"
+      }
+    ],
+    "202342067": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "c9a3cbe7a80972cbc40709b568e02822cfe95ff117d757e4991d65e3dd2e70d2",
+        "stage": "Decided"
+      }
+    ],
+    "202342071": [
+      {
+        "amendment": null,
+        "decision": "Refused",
+        "proposalSha256": "49cabb07b2865f46656d08deb6595db4e2c89fa0377ee2a8a2de48353d9726b0",
+        "stage": "Decided"
+      }
+    ],
+    "202342317": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "96b06dc7d2e9e7e748262c880cc2002ce97dad15890f2f07114d6deac3131569",
+        "stage": "Decided"
+      }
+    ],
+    "202342496": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "7aca3a33636e17ff8c7f8bc78791f9e5508fdbc67f2f92de1098d38f3c452e4f",
+        "stage": "Decided"
+      }
+    ],
+    "202342528": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "2cb6ede2c7911de7ab5f07b7479dc3e608081d3f17541188011f80e310b4509e",
+        "stage": "Decided"
+      }
+    ],
+    "202342578": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "33ad74a56afa134f35566db901752770cc1265299fe11b1faf121878f09eef8a",
+        "stage": "Decided"
+      }
+    ],
+    "202442736": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "b19f92878815d7f8d6622968c96c1a23c45e26d45e0f81d40192e87d81df491d",
+        "stage": "Decided"
+      }
+    ],
+    "202442776": [
+      {
+        "amendment": "S205C",
+        "decision": null,
+        "proposalSha256": "f0cbf1a38c714e39a121f1bf7f9e4720e2e19136113a8ccffc8c476f4daa024e",
+        "stage": "Decided"
+      },
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "2f475468b7e51c6c26181ac2fb4298789e7800d045c50743c300fe6f3e7df2c4",
+        "stage": "Decided"
+      }
+    ],
+    "202442777": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "4ecfb25595cddb6a9efcef891ffa11a1b322744e96f37efd12865fd18106937b",
+        "stage": "Decided"
+      }
+    ],
+    "202442858": [
+      {
+        "amendment": "S168D",
+        "decision": "Approval Conditional",
+        "proposalSha256": "b43afd2d2d3a0f810337ce45dff491a776882d9cb5830bae270758ce1e8ba942",
+        "stage": "Decided"
+      },
+      {
+        "amendment": "S168G",
+        "decision": "Approval Conditional",
+        "proposalSha256": "83ecefacaf0f7fdfc3ca42a2639091ffd1dd54fe60a087613f203f3603cc7e2d",
+        "stage": "Decided"
+      },
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "8d67449ef7b0f93315b895683d318455d708929e374a7065ed949b7319c6848a",
+        "stage": "Decided"
+      }
+    ],
+    "202443108": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "bca91a2fffd13f1c1c5c34161322b07fbab3b70ef13cd842a882a1fc419a79f3",
+        "stage": "Decided"
+      }
+    ],
+    "202443131": [
+      {
+        "amendment": "S205A",
+        "decision": null,
+        "proposalSha256": "c1220b882550f11c0a0211942593262e9d617e82fa46900d5750a854bcfe20c5",
+        "stage": "Decided"
+      },
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "9cd8fe5b6793a00ccc95c0b5fcd49b1b687eb57f7eb4ab8849e2542bd6cd535f",
+        "stage": "Decided"
+      }
+    ],
+    "202443182": [
+      {
+        "amendment": "S168B",
+        "decision": null,
+        "proposalSha256": "881d4a41b91b39dff0f909f8e5f6dd7416b9dcf2f97e5f768531cadee3083c75",
+        "stage": "Decided"
+      },
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "76de91132518ddcb9cb09cacfd79498bed2b3bf3b9170186ee2e3b4046b7ad8c",
+        "stage": "Decided"
+      }
+    ],
+    "202443506": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "71046d6418b8040a941a1fc0d7daaa6c359fd95ba5b0b5befa7297a4fbf5c345",
+        "stage": "Decided"
+      }
+    ],
+    "202443642": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "32b0f2460c3f5e03f782cf64bb0a418db5b1e16f5d52f2aaa2ad56ba01e729ad",
+        "stage": "Decided"
+      }
+    ],
+    "202443708": [
+      {
+        "amendment": null,
+        "decision": null,
+        "proposalSha256": "59f4abdb0ae9b04ace5ab66c9f016e312984920a6f415c78d09f20ee7b60fbd2",
+        "stage": "Under Assessment"
+      }
+    ],
+    "202543802": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "f912b4bd55f94216325ca66b630719ce9b3dbfa70f817baf5cd47d23499bff87",
+        "stage": "Decided"
+      }
+    ],
+    "202543897": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "1522911d35d26aba74611bb3dace86891ad09ceadb4873b6e6a5ed2eafb187ed",
+        "stage": "Decided"
+      }
+    ],
+    "202544061": [
+      {
+        "amendment": "S168B",
+        "decision": "Approval Conditional",
+        "proposalSha256": "3a890dffa7b141243f60dea9255a49cd28185a188a7e6f7ae743e5699489eb6d",
+        "stage": "Decided"
+      },
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "49664b37d3545bd001784c00281ea676f3e0e7725001aa772f732dd84b2de8c7",
+        "stage": "Decided"
+      }
+    ],
+    "202544133": [
+      {
+        "amendment": null,
+        "decision": "Refused",
+        "proposalSha256": "6cab0935775d8b06172ccf85fd8e35acae78b0269c50feb999d31b4d7fdc53d0",
+        "stage": "Decided"
+      }
+    ],
+    "202544290": [
+      {
+        "amendment": "S205B",
+        "decision": null,
+        "proposalSha256": "5e1c90dcb246a954aa9737afb18293a2046f005138b8525d0a1c86d3a0f96921",
+        "stage": "Decided"
+      },
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "96f410f399994fd1f01918445410fe5fb1b6ee56f1224cdd77baf950a2477880",
+        "stage": "Decided"
+      }
+    ],
+    "202544308": [
+      {
+        "amendment": "S179B",
+        "decision": "Approval Conditional",
+        "proposalSha256": "8144876ec9b872ce4f68e487319e3f9f4fe31539dd604ea6b8be14d8bb27849b",
+        "stage": "Decided"
+      },
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "e894e680a5f171e848964ff261045be3ef969080ef186c573072d5a50284dd30",
+        "stage": "Decided"
+      }
+    ],
+    "202544372": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "1c2a1d90c1120f1a8a9dc2ece231e26101c05a1bd4686a9955496908d9e603cb",
+        "stage": "Decided"
+      }
+    ],
+    "202544387": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "0b2f0cdbb41f1bea4c76b0d4678d3f3913d58ed94aa444813a10313ce8db25bc",
+        "stage": "Decided"
+      }
+    ],
+    "202544528": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "184100efbd31abbffda141880004735382e35c1fb4f41ac517a1e547a79513bb",
+        "stage": "Decided"
+      }
+    ],
+    "202544539": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "9030c677018ea0fad6c472a72f1947b2c59f978a41077a7ab72ec14816a08192",
+        "stage": "Decided"
+      }
+    ],
+    "202544748": [
+      {
+        "amendment": "S168B",
+        "decision": "Approval Conditional",
+        "proposalSha256": "e3c03cf416eb13c4e572e7a588889e94f9081f474293e689ac3305ea0a0ba2a6",
+        "stage": "Decided"
+      },
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "76deeed24f4531140bae14e5592ffbcc5f6c1f4eacb4961cc73f1461b714e120",
+        "stage": "Decided"
+      }
+    ],
+    "202645034": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "c9de2d40392ccb412f6b503cfee77b1b6b5a7e1b9309d963ddb52e9e3a8dadf8",
+        "stage": "Decided"
+      }
+    ],
+    "202645057": [
+      {
+        "amendment": "S179B",
+        "decision": "Approval Conditional",
+        "proposalSha256": "f2205587ccfb062e1ea275c1c647dd033f096218cb6083550c22bfbc5429d8b4",
+        "stage": "Decided"
+      },
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "b65674369c6890cb23286d65c778248b068d8553350573a1e8b24636098c9a13",
+        "stage": "Decided"
+      }
+    ],
+    "202645379": [
+      {
+        "amendment": null,
+        "decision": "Approval Conditional",
+        "proposalSha256": "2d8f2e6ed3da6a457fe123e7e75b4c6d011e2230596c679a49f6306be5d496ef",
+        "stage": "Decided"
+      }
+    ],
+    "202645447": [
+      {
+        "amendment": "S168B",
+        "decision": null,
+        "proposalSha256": "309ac8a16f024c36406ad723bc482cdc7b71a36098d0437907cd42ff0ba87ce3",
+        "stage": "Lodged"
+      },
+      {
+        "amendment": null,
+        "decision": null,
+        "proposalSha256": "2055f4af682b58c58b90d9ec3df5fe718612fe0cd6d6fbac96deeb02e3b46c6c",
+        "stage": "Under Assessment"
+      }
+    ],
+    "202645536": [
+      {
+        "amendment": null,
+        "decision": null,
+        "proposalSha256": "01dc21e318c4b1ab2f03452f9003aba6095f5cefa0c971c8f7349bb419e0cb45",
+        "stage": "Under Assessment"
+      }
+    ],
+    "202645688": [
+      {
+        "amendment": null,
+        "decision": null,
+        "proposalSha256": "d845ad5b4428c24e1323de3685555aeaba7fe07032b2c984cf95a6634d2b49bf",
+        "stage": "On notification"
+      }
+    ]
+  },
+  "snapshotId": "96fa73950bef6d7d745f995812ccc28f49f7e05735df0ef76df7ab2ef8d0659b"
+}

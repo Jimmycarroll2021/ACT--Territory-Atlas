@@ -4,6 +4,7 @@ import {loadLayers,overviewLayers,kingstonLayers,title,street,unit,address,bound
 import {attachMap,type AtlasMap,type Camera} from './map'
 import {escapeHtml as esc,facts,showProfile} from './profile'
 import {showPlanning} from './planning'
+import {applicationInspector} from './da-inspector'
 import manifest from '../data/geo/manifest.json'
 
 const $=<T extends HTMLElement=HTMLElement>(s:string)=>document.querySelector<T>(s)!
@@ -13,6 +14,7 @@ const sel=$('#selection'),division=$<HTMLSelectElement>('#division'),dialog=$<HT
 let map:AtlasMap|undefined,area:Item|undefined,block:Item|undefined,building:Item|undefined,home:Item|undefined,streetName='',profileMode=['localhost','127.0.0.1','[::1]'].includes(location.hostname)?'local':'example',query=''
 const layers=loadLayers(name=>map?.refreshLayer(name))
 const d=layers.data
+const daInspector=applicationInspector($('.mapArea'))
 const layerLabels:Record<LayerName,string>={border:'ACT border',urban:'urban extent',divisions:'suburb boundaries',blocks:'registered blocks',addresses:'addresses',footprints:'building footprints',units:'unit polygons'}
 const overviewStatus=document.createElement('div')
 sel.before(overviewStatus)
@@ -120,10 +122,14 @@ function renderDrill(){
  input.disabled=!layers.ready.has('addresses');input.oninput=search;search()
  if(home){const m=$<HTMLSelectElement>('#mode');m.value=profileMode;const update=()=>{profileMode=m.value;showProfile($('#profile'),home!,profileMode)};m.onchange=update;update()}
  const planning=$('#planningContent')
- if(planning)showPlanning(planning,block,home,keys=>map?.showApplicationBlocks(keys))
- else map?.showApplicationBlocks(new Set())
+ if(planning)showPlanning(planning,block,home,(matches,list)=>{
+   map?.showApplicationBlocks(matches)
+   daInspector.setBlocks(matches,d.blocks.features,list)
+ })
+ else map?.showApplicationBlocks(new Map())
 }
 function render(){
+ daInspector.close()
  const name=area?title(area.properties.DIVISION_NAME):''
  $('#panelTitle').textContent=name||'Explore Canberra';$('#panelIntro').textContent=!area?'Browse suburb boundaries and explore property detail in Kingston.':name==='Kingston'?'Choose a block or search an address to inspect the official property records.':'Explore the official division boundary for '+name+'.'
  $('#place').textContent='Canberra  /  '+(fullTerritory?'ACT border':name||'Overview')
@@ -212,7 +218,7 @@ async function ensureOverview(){
 async function init(){
  icons();initSources();division.disabled=true
  await ensureOverview()
- try{map=attachMap(d,{division:chooseDivision,block:chooseBlock,addresses:chooseMappedAddresses,footprint:chooseBuilding})}catch{$('#status').textContent='Map rendering is unavailable. Use the suburb and property controls to explore the records.'}
+ try{map=attachMap(d,{division:chooseDivision,block:chooseBlock,addresses:chooseMappedAddresses,footprint:chooseBuilding,application:daInspector.show,closeApplication:daInspector.close})}catch{$('#status').textContent='Map rendering is unavailable. Use the suburb and property controls to explore the records.'}
  division.onchange=()=>chooseDivision(division.value);$('#overview').onclick=()=>overview()
  function restore(){
    pendingRoute={params:new URLSearchParams(location.search),camera:history.state?.camera as Camera|undefined}

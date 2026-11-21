@@ -6,7 +6,7 @@ export type Camera={center:[number,number];zoom:number;bearing:number;pitch:numb
 const names:Record<LayerName,string>={border:'ACT border',urban:'Urban extent · ABS 2021',divisions:'Suburb boundaries',blocks:'Registered blocks',footprints:'Building footprints',addresses:'Address points',units:'Matched unit polygon'}
 const groups:Record<LayerName,string[]>={border:['territory'],urban:['urban-fill'],divisions:['div-fill','div-line'],blocks:['block-fill','block-line'],footprints:['building-fill'],addresses:['address-point'],units:['unit-fill','unit-line']}
 const empty={type:'FeatureCollection' as const,features:[]}
-export function attachMap(data:Dataset, events:{division:(name:string)=>void;block:(id:number)=>void;addresses:(ids:number[])=>void;footprint:(id:number)=>void}) {
+export function attachMap(data:Dataset, events:{division:(name:string)=>void;block:(id:number)=>void;addresses:(ids:number[])=>void;footprint:(id:number)=>void;application:(key:string,pin:boolean)=>void;closeApplication:()=>void}) {
  const map=new GLMap({container:'map',center:[149.09,-35.33],zoom:10.5,minZoom:5,maxZoom:21,attributionControl:false,canvasContextAttributes:{antialias:true},style:{version:8,glyphs:'https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf',sources:{},layers:[{id:'paper',type:'background',paint:{'background-color':'#e7ebdf'}}]}})
  map.addControl(new NavigationControl({showCompass:true,visualizePitch:false}),'bottom-right')
  map.addControl(new ScaleControl({unit:'metric',maxWidth:88}),'bottom-left')
@@ -16,11 +16,17 @@ export function attachMap(data:Dataset, events:{division:(name:string)=>void;blo
  const menu=document.querySelector('#layerMenu')!
  for(const key of Object.keys(names) as LayerName[]){const label=document.createElement('label'),box=document.createElement('input');box.type='checkbox';box.checked=true;box.onchange=()=>{if(box.checked)active.add(key);else active.delete(key);visibility()};label.append(box,names[key]);menu.append(label)}
  let applicationsVisible=true
+ let hoveredApplication: string | undefined
  const applicationsLabel=document.createElement('label')
  const applicationsToggle=document.createElement('input')
  applicationsToggle.type='checkbox'
  applicationsToggle.checked=true
- applicationsToggle.onchange=()=>{applicationsVisible=applicationsToggle.checked;visibility()}
+ applicationsToggle.onchange=()=>{
+   applicationsVisible=applicationsToggle.checked
+   hoveredApplication=undefined
+   if(!applicationsVisible)events.closeApplication()
+   visibility()
+ }
  applicationsLabel.append(applicationsToggle,'Development applications')
  menu.append(applicationsLabel)
  const applicationLayers=['application-fill','application-outline']
@@ -44,7 +50,7 @@ export function attachMap(data:Dataset, events:{division:(name:string)=>void;blo
    }
  }
  function fit(f:Item,maxZoom=16){map.fitBounds(bounds(f),{padding:window.innerWidth<730?28:52,maxZoom,duration:matchMedia('(prefers-reduced-motion: reduce)').matches?0:430})}
- let applicationKeys:ReadonlySet<string>=new Set()
+ let applicationKeys:ReadonlyMap<string,readonly string[]>=new Map()
  function syncApplications(){
    if(!ready)return
    const features=data.blocks.features.filter(f=>applicationKeys.has(String(f.properties.BLOCK_KEY)))
@@ -90,17 +96,36 @@ export function attachMap(data:Dataset, events:{division:(name:string)=>void;blo
      }
    }catch{/* The local map remains usable when basemap requests fail. */}
  }
- map.on('mouseenter','div-fill',()=>{map.getCanvas().style.cursor='pointer'})
- map.on('mouseleave','div-fill',()=>{map.getCanvas().style.cursor=''})
+ function applicationHit(point: Parameters<GLMap['queryRenderedFeatures']>[0]): string | undefined {
+   if(!kingston || !applicationsVisible || !applicationKeys.size)return
+   const hit=map.queryRenderedFeatures(point,{layers:applicationLayers})[0]
+   const key=String(hit?.properties.BLOCK_KEY ?? '')
+   if(applicationKeys.has(key))return key
+ }
+ map.on('mousemove',e=>{
+   if(!ready || map.isMoving())return
+   const mouse=e.originalEvent as MouseEvent & {sourceCapabilities?: {firesTouchEvents: boolean}}
+   if(mouse.sourceCapabilities?.firesTouchEvents)return
+   const key=applicationHit(e.point)
+   if(key && key!==hoveredApplication)events.application(key,false)
+   hoveredApplication=key
+   const cursor=key || map.queryRenderedFeatures(e.point,{layers:['div-fill']}).length ? 'pointer' : ''
+   if(map.getCanvas().style.cursor!==cursor)map.getCanvas().style.cursor=cursor
+ })
+ map.on('mouseout',()=>{hoveredApplication=undefined;map.getCanvas().style.cursor=''})
  map.on('zoomend',updateMarkers)
  map.on('click',e=>{
    if(!ready)return
    const hit=map.queryRenderedFeatures(e.point,{layers:['address-point','building-fill','block-fill','div-fill']})
-   const first=hit[0];if(!first)return
-   if(kingston && first.layer.id==='address-point')events.addresses([...new Set(hit.filter(f=>f.layer.id==='address-point').map(f=>Number(f.properties.ADDRESS_ID)))])
-   else if(kingston && first.layer.id==='building-fill')events.footprint(Number(first.properties.OBJECTID))
-   else if(kingston && first.layer.id==='block-fill')events.block(Number(first.properties.BLOCK_KEY))
-   else if(first.layer.id==='div-fill')events.division(first.properties.DIVISION_NAME)
+   const first=hit[0]
+   if(kingston && first?.layer.id==='address-point')events.addresses([...new Set(hit.filter(f=>f.layer.id==='address-point').map(f=>Number(f.properties.ADDRESS_ID)))])
+   else if(kingston && first?.layer.id==='building-fill')events.footprint(Number(first.properties.OBJECTID))
+   else{
+     const key=applicationHit(e.point)
+     if(key)events.application(key,true)
+     else if(kingston && first?.layer.id==='block-fill')events.block(Number(first.properties.BLOCK_KEY))
+     else if(first?.layer.id==='div-fill')events.division(first.properties.DIVISION_NAME)
+   }
  })
  function overview(){
    kingston=false;selected={};sync();visibility()
@@ -120,7 +145,7 @@ export function attachMap(data:Dataset, events:{division:(name:string)=>void;blo
      if(name==='blocks')syncApplications()
      if(name==='divisions' && ready)updateMarkers()
    },
-   showApplicationBlocks(keys:ReadonlySet<string>){applicationKeys=keys;syncApplications()},
+   showApplicationBlocks(keys:ReadonlyMap<string,readonly string[]>){applicationKeys=keys;hoveredApplication=undefined;syncApplications()},
    division(f:Item){kingston=f.properties.DIVISION_NAME==='KINGSTON';selected={area:f};sync();visibility();fit(f);updateMarkers()},
    select(block?:Item,address?:Item,unit?:Item,building?:Item,move=true){
      selected={area:kingstonDivision(),parcel:block,home:address,unit,building};sync()

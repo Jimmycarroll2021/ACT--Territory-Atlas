@@ -22,6 +22,23 @@ type Applications = Snapshot & {
   applications: Record<string, Application>
   byBlock: Record<string, {onBlock: string[]; nearby: {number: string; distanceM: number}[]}>
 }
+type ApplicationDetail = {
+  status: 'matched' | 'unavailable' | 'ambiguous' | 'unreviewed'
+  confidence: 'high' | 'unknown'
+  proposedWorks: string | null
+  sourceUrl: string
+  stage: string | null
+  decision: string | null
+  questions: string[]
+}
+type ApplicationDetails = {
+  checkedAt: string
+  sourceName: string
+  sourceUrl: string
+  attribution: string
+  termsUrl: string
+  records: Record<string, unknown>
+}
 
 const pointerUrl = '/planning/current.json'
 let pointer: SnapshotPointer | undefined
@@ -29,6 +46,9 @@ let zoning: Zoning | undefined
 let applications: Applications | undefined
 let pending: Promise<void> | undefined
 let attempted = false
+let applicationDetails: ApplicationDetails | undefined
+let detailsRequest: Promise<void> | undefined
+let detailsAttempted = false
 
 const formatDate = new Intl.DateTimeFormat('en-AU', {day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC'})
 const localDate = new Intl.DateTimeFormat('en-AU', {day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'Australia/Sydney'})
@@ -180,6 +200,68 @@ function validApplication(row: unknown, number: string): row is Application {
     strings(row.types) && strings(row.subclasses)
 }
 
+export function loadApplicationDetails(): Promise<void> | undefined {
+  if (detailsAttempted) return detailsRequest
+  detailsAttempted = true
+  detailsRequest = json('/planning/da-details.json', 'no-cache').then(raw => {
+    if (!record(raw) || raw.schemaVersion !== 1 || typeof raw.checkedAt !== 'string' ||
+        !date(raw.checkedAt.slice(0, 10)) || !Number.isFinite(Date.parse(raw.checkedAt)) ||
+        raw.snapshotId !== applications?.snapshotId ||
+        typeof raw.sourceName !== 'string' || !raw.sourceName.trim() || !secureUrl(raw.sourceUrl) ||
+        typeof raw.attribution !== 'string' || !raw.attribution.trim() || !secureUrl(raw.termsUrl) || !record(raw.records)) return
+    applicationDetails = {
+      checkedAt: raw.checkedAt.slice(0, 10), sourceName: raw.sourceName, sourceUrl: raw.sourceUrl,
+      attribution: raw.attribution, termsUrl: raw.termsUrl, records: raw.records,
+    }
+  }).catch(() => {
+    // Application geometry and snapshot metadata remain usable without proposal details.
+  }).finally(() => {
+    detailsRequest = undefined
+  })
+  return detailsRequest
+}
+
+function textOrNull(value: unknown): value is string | null {
+  return value === null || (typeof value === 'string' && !!value.trim())
+}
+
+function validDetail(row: unknown): row is ApplicationDetail {
+  return record(row) && ['matched', 'unavailable', 'ambiguous', 'unreviewed'].includes(String(row.status)) &&
+    (row.confidence === 'high' || row.confidence === 'unknown') && secureUrl(row.sourceUrl) &&
+    textOrNull(row.proposedWorks) && textOrNull(row.stage) && textOrNull(row.decision) && strings(row.questions)
+}
+
+export function applicationDetailsContent(numbers: readonly string[], loading: boolean): string {
+  if (!applications) return state('Development application data unavailable.')
+  const {applications: byNumber, snapshotDate, sourceUrls} = applications
+  const list = numbers.map(number => {
+    const app = byNumber[number]
+    if (!validApplication(app, number)) return ''
+    const raw = applicationDetails?.records[number]
+    const detail = validDetail(raw) ? raw : undefined
+    const matched = detail?.status === 'matched' && detail.confidence === 'high' && detail.proposedWorks
+    const source = detail?.sourceUrl ?? applicationDetails?.sourceUrl ?? sourceUrls[app.status]
+    const sourceName = applicationDetails?.sourceName ?? 'ACTmapi application data'
+    const snapshotStatus = app.status === 'active' ? 'Active in map snapshot' : 'Completed in map snapshot'
+    const status = detail?.stage?.trim() || snapshotStatus
+    const decision = detail?.decision?.trim() || app.decision
+    const dates = `Map snapshot ${dateLabel(snapshotDate)}`
+    const checked = detail && applicationDetails ? ` · Records checked ${dateLabel(applicationDetails.checkedAt)}` : ''
+    const questions = matched && detail.questions.filter(question => question.trim())
+    const works = matched ? `<p>${esc(detail.proposedWorks)}</p>` : '<p>Proposal and potential impact details are unavailable.</p>'
+    const nearby = questions && questions.length ? '<h5>What to check nearby</h5>' +
+      '<p class="notice">Questions to investigate. Local effects are unverified.</p>' +
+      `<ul>${questions.map(question => `<li>${esc(question)}</li>`).join('')}</ul>` :
+      matched ? '<p class="notice">Nearby effects are unverified.</p>' : ''
+    return `<li><h4>DA ${esc(number)}</h4><p class="notice">${esc(status)}${decision ? ` · Decision ${esc(decision)}` : ''}</p>` +
+      `${loading ? state('Loading proposal details…') : works + nearby}<p class="notice">${dates}${checked}</p>` +
+      `<p>${link(source, `Official source · ${sourceName}`)}</p></li>`
+  }).join('')
+  const attribution = applicationDetails ? `<p class="notice daAttribution">${esc(applicationDetails.attribution)} ` +
+    `${link(applicationDetails.termsUrl, 'ACTmapi terms of use')}</p>` : ''
+  return `<ul class="daDetailList">${list}</ul>${attribution}`
+}
+
 function applicationRow(app: Application, distanceM?: number): string {
   const status = app.status === 'active' ? 'Active in snapshot' : 'Completed in snapshot'
   const description = [...new Set([...app.types, ...app.subclasses])].join(' · ')
@@ -203,14 +285,19 @@ function applicationMatch(key: string) {
   }
 }
 
-function applicationBlockKeys(match: ReturnType<typeof applicationMatch>): Set<string> {
-  const keys = new Set<string>()
-  if (!applications || !match) return keys
+export type ApplicationBlocks = ReadonlyMap<string, readonly string[]>
+
+function applicationBlocks(match: ReturnType<typeof applicationMatch>): ApplicationBlocks {
+  const blocks = new Map<string, string[]>()
+  if (!applications || !match) return blocks
+  const {byBlock, applications: byNumber} = applications
   const relevant = new Set([...match.onBlock, ...match.nearby.map(row => row.number)])
-  for (const [key, row] of Object.entries(applications.byBlock)) {
-    if (record(row) && strings(row.onBlock) && row.onBlock.some(number => relevant.has(number))) keys.add(key)
+  for (const [key, row] of Object.entries(byBlock)) {
+    if (!record(row) || !strings(row.onBlock) || !row.onBlock.some(number => relevant.has(number))) continue
+    const numbers = [...new Set(row.onBlock)].filter(number => validApplication(byNumber[number], number))
+    if (numbers.length) blocks.set(key, numbers)
   }
-  return keys
+  return blocks
 }
 
 function applicationContent(match: ReturnType<typeof applicationMatch>, loading: boolean): string {
@@ -228,10 +315,10 @@ function applicationContent(match: ReturnType<typeof applicationMatch>, loading:
 }
 
 export function showPlanning(container: HTMLElement, block: Item | undefined, home: Item | undefined,
-  showApplicationBlocks: (keys: ReadonlySet<string>) => void) {
+  showApplicationBlocks: (blocks: ApplicationBlocks, list: HTMLElement | null) => void) {
   const key = String(block?.properties.BLOCK_KEY ?? home?.properties.BLOCK_KEY ?? '')
   if (!/^\d+$/.test(key)) {
-    showApplicationBlocks(new Set())
+    showApplicationBlocks(new Map(), null)
     container.innerHTML = state('Planning unavailable. This address has no registered block key.')
     return
   }
@@ -239,13 +326,14 @@ export function showPlanning(container: HTMLElement, block: Item | undefined, ho
   function render(loading: boolean) {
     if (!container.isConnected) return
     const match = applicationMatch(key)
-    showApplicationBlocks(applicationBlockKeys(match))
-    const mapKey = match ? '<p class="notice planningMapKey"><span class="swatch application" aria-hidden="true"></span>Yellow marks Kingston blocks linked to these applications. Nearby applications without a Kingston block match appear in the list.</p>' : ''
+    const linkedBlocks = applicationBlocks(match)
+    const mapKey = linkedBlocks.size ? '<p class="notice planningMapKey"><span class="swatch application" aria-hidden="true"></span>Hover over or tap a yellow block to see its proposals and what to check nearby.</p><div id="applicationBlockList"></div>' : ''
     const retry = !loading && (!zoning || !applications) ? '<button class="retry">Retry planning data</button>' : ''
     container.innerHTML = `<p class="bodyText">${scope}${home ? ' · parent block' : ''}</p>` +
       '<p class="notice">Check the official records for current zoning, permissions and application decisions.</p>' +
       `<div class="planningSection"><h3>Mapped zoning</h3>${zoningContent(key, loading)}</div>` +
       `<div class="planningSection"><h3>Development applications</h3>${mapKey}${applicationContent(match, loading)}</div>${retry}`
+    showApplicationBlocks(linkedBlocks, container.querySelector<HTMLElement>('#applicationBlockList'))
     const button = container.querySelector('button')
     if (button) button.onclick = refresh
   }

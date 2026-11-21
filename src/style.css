@@ -29,3 +29,33 @@ button:disabled,select:disabled,input:disabled{cursor:default;opacity:.65}
 
 .swatch.application{background:#ffe044;border-color:#8b6b00;flex:none}
 .planningMapKey{display:flex;align-items:baseline;gap:8px}
+.daBlockPicker{margin:10px 0 14px}
+.daBlockPicker summary{padding:5px 0;font-size:13px;font-weight:650}
+.daBlockPicker .field{margin-top:6px}
+.daPickerResults:not(:empty){margin-top:10px;padding:0 10px;background:var(--paper);border:1px solid var(--line);border-radius:4px}
+.daInspector{position:absolute;z-index:1;top:65px;left:18px;width:min(340px,calc(100% - 64px));max-height:calc(100% - 124px);overflow:auto;overscroll-behavior:contain;background:var(--paper);border:1px solid #b8a85b;border-top:3px solid #e7b805;border-radius:6px;padding:12px 14px;box-shadow:0 5px 16px #29402a2b;overflow-wrap:anywhere}
+.mapArea:has(.daInspector:not([hidden])) .maplibregl-ctrl-bottom-right{left:0;display:flex;flex-direction:column;align-items:flex-end}
+.mapArea:has(.daInspector:not([hidden])) .maplibregl-ctrl-bottom-right .maplibregl-ctrl-attrib{order:1;max-width:calc(100% - 136px);box-sizing:border-box}
+.mapTop{z-index:2}
+.daInspectorHeading{display:flex;justify-content:space-between;align-items:start;gap:10px}
+.daInspectorHeading h3{font-size:15px;line-height:1.3}
+.daParcelLabel{font-size:12px;color:var(--muted);margin-top:3px}
+.daClose,.daKeep{border:1px solid var(--line);border-radius:4px;background:#fffef6}
+.daClose{flex:none;width:36px;height:36px;font-size:23px;line-height:1}
+.daKeep{padding:7px 10px;font-size:12px;font-weight:650;margin-top:2px}
+.daDetailList{list-style:none;padding:0;margin:0;font-size:13px;line-height:1.45}
+.daDetailList>li{padding:10px 0;border-top:1px solid var(--line)}
+.daInspectorBody{margin-top:9px}
+.daPickerResults .daDetailList>li:first-child{border:0}
+.daDetailList h4,.daDetailList h5{margin:0;font-size:13px}
+.daDetailList h5{margin-top:10px}
+.daDetailList p{margin:4px 0}
+.daDetailList ul{margin:5px 0 8px;padding-left:18px}
+.daDetailList ul li+li{margin-top:4px}
+.daAttribution{margin:0 0 9px;padding-top:7px;border-top:1px solid var(--line)}
+@media(max-width:730px){
+  .daInspector{top:47px;left:8px;width:min(340px,calc(100% - 54px));max-height:calc(100% - 110px);padding:8px 11px}
+}
+@media(max-width:360px){
+  .daInspector{max-height:calc(100% - 132px)}
+}
