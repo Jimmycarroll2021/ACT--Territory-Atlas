@@ -20,8 +20,11 @@ Open [the local map](http://127.0.0.1:4173/). For development, run `npm.cmd run 
 - **Explore Kingston** opens the property explorer. Search a street address or an ACT address ID, browse by registered block, or click an address point after zooming in. A click on overlapping points presents a choice of address records.
 - Select a street and then an individual address or unit. Registered blocks, addresses, building footprints and unit polygons retain their source identities. Building-footprint selection exposes the source building type and use.
 - A unit outline appears only for a unique address-to-unit match on block key, unit plan and unit title. Unmatched addresses keep their own point. Unmatched footprints remain selectable. Class B unit coverage is partial.
+- **Planning** shows published ACTmapi information for the selected registered block. Address and unit selections use their parent block. Mapped zones include the approximate area share and highlight small intersections, gaps and overlaps. Development applications are grouped by exact block key or mapped distance within 500 m. The panel shows the snapshot date, completed-application coverage, and official source links. A snapshot older than seven calendar days is marked stale.
 - Select **Synthetic example** in a property record to see fictional characteristics and sale history, explicitly labeled throughout. A local profile without curated evidence displays **Unavailable**. Some blocks have no address record.
 - **Layers** controls visibility. Sources and licence information are available in **Data sources** and [the full source manifest](data/geo/manifest.json). Street tiles and labels use OpenFreeMap Positron when available. Official GeoJSON layers remain usable if external tiles fail.
+
+The overview loads the three territory layers first. The four Kingston layers load on entry to Kingston or on a Kingston deep link. Successful layers are reused for the session and unavailable layers can be retried. Planning loads on the first block or address selection and follows one published snapshot via `public/planning/current.json`. The map and property explorer continue to work if a planning file is unavailable.
 
 ## Public build and private records
 
@@ -32,4 +35,6 @@ For an independently authorised dataset only, the optional server-side variable 
 ## Data sources
 
 Registered property and administrative geometry is from ACT Government / ACTmapi. Urban extent is from the Australian Bureau of Statistics, ASGS Edition 3 (2021). Each layer’s publisher, source URL, licence, scope, extraction filter, count and file SHA-256 are recorded in [the source manifest](data/geo/manifest.json). OpenFreeMap, OpenMapTiles and OpenStreetMap contributors provide the external basemap. Fonts and application code are packaged locally.
+
+ACTmapi planning data is attributed to the Australian Capital Territory under CC BY 4.0. The snapshot records mapped, gazetted zoning and active applications, plus applications completed in the five-year coverage window. Nearby applications depend on available source geometry. Check the official records for current zoning, planning controls and application decisions. [Planning snapshot manifest](data/planning/manifest.json)
 

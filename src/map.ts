@@ -22,9 +22,18 @@ export function attachMap(data:Dataset, events:{division:(name:string)=>void;blo
  const capital=document.createElement('div');capital.className='mapLabel capital';capital.textContent='Canberra'
  const cityMarker=new Marker({element:capital,anchor:'bottom'}).setLngLat([149.129,-35.279])
  const pin=document.createElement('button');pin.className='markerBtn';pin.textContent='●  Kingston';pin.setAttribute('aria-label','Explore Kingston');pin.onclick=()=>events.division('KINGSTON')
- const k=data.divisions.features.find(f=>f.properties.DIVISION_NAME==='KINGSTON')!
- const kMarker=new Marker({element:pin,anchor:'left'}).setLngLat(point(k))
- const updateMarkers=()=>{if(map.getZoom()<12 && !kingston){cityMarker.addTo(map);kMarker.addTo(map)}else{cityMarker.remove();kMarker.remove()}}
+ const kMarker=new Marker({element:pin,anchor:'left'})
+ const kingstonDivision=()=>data.divisions.features.find(f=>f.properties.DIVISION_NAME==='KINGSTON')
+ function updateMarkers(){
+   const k=kingstonDivision()
+   if(map.getZoom()<12 && !kingston){
+     cityMarker.addTo(map)
+     if(k)kMarker.setLngLat(point(k)).addTo(map)
+   }else{
+     cityMarker.remove()
+     kMarker.remove()
+   }
+ }
  function fit(f:Item,maxZoom=16){map.fitBounds(bounds(f),{padding:window.innerWidth<730?28:52,maxZoom,duration:matchMedia('(prefers-reduced-motion: reduce)').matches?0:430})}
  let selected:Partial<Record<'area'|'parcel'|'home'|'unit'|'building',Item|undefined>>={}
  function sync(){if(!ready)return;for(const id of ['area','parcel','home','unit','building'] as const){const f=selected[id];(map.getSource('sel-'+id) as GeoJSONSource).setData(f||empty)}}
@@ -74,10 +83,30 @@ export function attachMap(data:Dataset, events:{division:(name:string)=>void;blo
    else if(kingston && first.layer.id==='block-fill')events.block(Number(first.properties.BLOCK_KEY))
    else if(first.layer.id==='div-fill')events.division(first.properties.DIVISION_NAME)
  })
- function overview(){kingston=false;selected={};sync();visibility();fit(data.urban.features[0],11);updateMarkers()}
+ function overview(){
+   kingston=false;selected={};sync();visibility()
+   if(data.urban.features[0])fit(data.urban.features[0],11)
+   else map.jumpTo({center:[149.09,-35.33],zoom:10.5,pitch:0,bearing:0})
+   updateMarkers()
+ }
  overview()
  const camera=():Camera=>({center:map.getCenter().toArray() as [number,number],zoom:map.getZoom(),pitch:map.getPitch(),bearing:map.getBearing()})
- return {overview,camera,restoreCamera:(saved:Camera)=>map.jumpTo(saved),onCamera:(handler:()=>void)=>map.on('moveend',handler),division(f:Item){kingston=f.properties.DIVISION_NAME==='KINGSTON';selected={area:f};sync();visibility();fit(f);updateMarkers()},select(block?:Item,address?:Item,unit?:Item,building?:Item){selected={area:k,parcel:block,home:address,unit,building};sync();const f=unit||building||block||address;if(f)fit(f,address?18:17)},territory(){fit(data.border.features[0],10)}}
+ return {
+   overview,
+   camera,
+   restoreCamera:(saved:Camera)=>map.jumpTo(saved),
+   onCamera:(handler:()=>void)=>map.on('moveend',handler),
+   refreshLayer(name: LayerName){
+     if(ready)(map.getSource(name) as GeoJSONSource).setData(data[name])
+     if(name==='divisions' && ready)updateMarkers()
+   },
+   division(f:Item){kingston=f.properties.DIVISION_NAME==='KINGSTON';selected={area:f};sync();visibility();fit(f);updateMarkers()},
+   select(block?:Item,address?:Item,unit?:Item,building?:Item,move=true){
+     selected={area:kingstonDivision(),parcel:block,home:address,unit,building};sync()
+     const f=unit||building||block||address;if(f && move)fit(f,address?18:17)
+   },
+   territory(){if(data.border.features[0])fit(data.border.features[0],10)},
+ }
 }
 export type AtlasMap=ReturnType<typeof attachMap>
 

@@ -9,3 +9,20 @@ main{display:grid;grid-template-columns:360px 1fr;height:calc(100dvh - 69px);min
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 
 .territoryBtn{margin-top:18px}.searchResults{width:100%;padding:8px;border:1px solid #b3c0b2;border-radius:4px;color:var(--ink);background:#f5f5ed;font-size:12px}#results:not(:empty){margin-top:8px;font-size:12px}summary{cursor:pointer}
+
+button:disabled,select:disabled,input:disabled{cursor:default;opacity:.65}
+.layerStatus{margin:12px 0;border-left:2px solid #a18a60;padding-left:10px}
+.retry{margin-top:10px;padding:7px 10px;border:1px solid #b4c2b0;border-radius:4px;background:var(--paper);font-size:12px;font-weight:650}
+.planning{margin-top:20px;padding:14px;border:1px solid #bdcbb8;border-radius:6px;background:#f2f4ea;overflow-wrap:anywhere}
+.planning h2{font-size:33px;line-height:1.1;letter-spacing:-.8px}
+.planning h3{font-size:15px}
+.planning h4{font-size:13px;margin:0}
+.planningSection{margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.planningWarning{margin-top:8px;padding:7px 8px;border-left:2px solid #9f583d;background:#f8eadf;color:#6c3a28;font-size:12px;line-height:1.4}
+.zoneList,.applicationList{margin:8px 0 0;padding:0;list-style:none}
+.zoneList li,.applicationList li{padding:8px 0;border-top:1px solid var(--line);font-size:13px;line-height:1.4}
+.zoneShare{display:block;color:var(--muted);font-size:12px}
+.planningLinks{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:7px}
+.planning .planningGroup,.nearby{margin-top:14px}
+.nearby summary{font-size:13px;font-weight:650;padding:5px 0}
+.applicationList .facts{margin:7px 0 0}

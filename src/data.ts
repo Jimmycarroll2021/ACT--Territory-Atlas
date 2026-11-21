@@ -4,6 +4,45 @@ export type LayerName = keyof typeof files
 export type Item = Feature<Geometry,Record<string,string|number|null>>
 export type Collection = FeatureCollection<Geometry,Item['properties']>
 export type Dataset = Record<LayerName, Collection>
+export const overviewLayers = ['border', 'urban', 'divisions'] as const
+export const kingstonLayers = ['blocks', 'addresses', 'footprints', 'units'] as const
+export const emptyCollection: Collection = {type: 'FeatureCollection', features: []}
+
+export function loadLayers(onLoad: (name: LayerName) => void) {
+  const keys = [...overviewLayers, ...kingstonLayers]
+  const data = Object.fromEntries(keys.map(name => [name, emptyCollection])) as Dataset
+  const ready = new Set<LayerName>()
+  const pending = new Map<LayerName, Promise<void>>()
+
+  function load(name: LayerName): Promise<void> {
+    if (ready.has(name)) return Promise.resolve()
+    const existing = pending.get(name)
+    if (existing) return existing
+
+    const request = (async () => {
+      const response = await fetch(`/geo/${files[name]}.geojson`, {signal: AbortSignal.timeout(12000)})
+      if (!response.ok) throw new Error(`${files[name]} unavailable`)
+      const collection = await response.json() as Collection
+      if (collection?.type !== 'FeatureCollection' || !Array.isArray(collection.features)) {
+        throw new Error(`${files[name]} is invalid`)
+      }
+      data[name] = collection
+      ready.add(name)
+      onLoad(name)
+    })().finally(() => pending.delete(name))
+
+    pending.set(name, request)
+    return request
+  }
+
+  return {
+    data,
+    ready,
+    async ensure(names: readonly LayerName[]) {
+      await Promise.allSettled(names.map(load))
+    },
+  }
+}
 export const title = (value:unknown) => String(value ?? '').toLowerCase().replace(/\b\p{L}/gu,c=>c.toUpperCase())
 export function street(f:Item) {const p=f.properties;return [p.STREET_NUMBER,title(p.STREET_NAME),title(p.STREET_TYPE)].filter(Boolean).join(' ')}
 export function unit(f:Item) {return String(f.properties.DOOR_NO ?? f.properties.UNIT_TITLE ?? '')}
@@ -32,15 +71,5 @@ export function matchUnit(a:Item,units:Item[],addresses:Item[]) {
   if(addresses.filter(sameAddressKey).length!==1)return
   const matches=units.filter(f=>f.properties.BLOCK_KEY===p.BLOCK_KEY && String(f.properties.UNIT_PLAN_NO)===String(p.UNITPLAN_NO) && String(f.properties.UNIT_NUMBER)===String(p.UNIT_TITLE))
   return matches.length===1 ? matches[0] : undefined
-}
-export async function loadData():Promise<Dataset> {
-  const entries=await Promise.all(Object.entries(files).map(async ([key,file])=>{
-    const response=await fetch('/geo/'+file+'.geojson')
-    if(!response.ok)throw Error(file+' unavailable')
-    const json=await response.json()
-    if(!Array.isArray(json.features)) throw Error(file+' is invalid')
-    return [key,json] as const
-  }))
-  return Object.fromEntries(entries) as Dataset
 }
 
