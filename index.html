@@ -4,7 +4,24 @@
 <main><aside aria-label="Map explorer">
 <div class="sideIntro"><div class="eyebrow"><span class="dot"></span> Australian Capital Territory</div><h1 id="panelTitle">Explore Canberra</h1><p id="panelIntro">Browse suburb boundaries and explore property detail in Kingston.</p></div>
 <div class="sideBody"><label for="division">Find a suburb</label><div class="selectWrap"><i data-icon="search"></i><select id="division"><option value="">Choose a suburb</option></select><i data-icon="chevron"></i></div>
-<section id="selection" aria-label="Selected area"></section></div>
+<div id="kingstonViews" class="contextTabs" role="tablist" aria-label="Kingston views" hidden>
+<button id="locationTab" type="button" role="tab" aria-selected="true" aria-controls="locationView">Location</button>
+<button id="todayTab" type="button" role="tab" aria-selected="false" aria-controls="todayView" tabindex="-1">Today &amp; this week</button>
+</div>
+<div id="locationView">
+<button id="locationFactsShortcut" type="button" class="contextShortcut" hidden>Jump to location facts</button>
+<section id="selection" aria-label="Selected area"></section>
+<section id="locationFacts" class="contextSection" aria-labelledby="locationFactsTitle" tabindex="-1" hidden>
+<h2 id="locationFactsTitle">Location facts</h2>
+<p class="contextIntro">Area context for Kingston. Check each source’s coverage for the property you’re considering.</p>
+<p class="contextStatus" role="status"></p><div class="contextRows"></div>
+</section>
+</div>
+<section id="todayView" class="contextSection" role="tabpanel" aria-labelledby="todayTab" tabindex="0" hidden>
+<h2>Today &amp; this week</h2>
+<p class="contextIntro">Time-sensitive information for Kingston and nearby areas. Check the observation time and coverage.</p>
+<p class="contextStatus" role="status"></p><div class="contextRows"></div>
+</section></div>
 <div class="sideFoot"><i data-icon="map"></i> Canberra, Australia</div></aside>
 <section class="mapArea" aria-label="Interactive Canberra map">
 <div id="map"></div><div class="mapTop"><button id="overview"><i data-icon="frame"></i> Overview</button><button id="layerBtn" aria-expanded="false" aria-controls="layerMenu"><i data-icon="layers"></i> Layers</button></div>

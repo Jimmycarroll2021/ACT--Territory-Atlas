@@ -1,0 +1,208 @@
+{
+  "asOf": "2026-11-21T23:46:47.533Z",
+  "webMap": "https://www.arcgis.com/sharing/rest/content/items/dcc7ff1d43104b05a340dd87617112b7/data?f=json",
+  "divisionsSha256": "c5345742e104bab8a024a420a692fae0de4a23057b19cb62c762b1d4ada9aafe",
+  "layers": [
+    {
+      "id": "planned-road",
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/arcgis/rest/services/Road_Closures_public_view_HISTORICAL/FeatureServer/0",
+      "itemId": "33338a0881864817a801e3c5b857d016",
+      "sourceEditedAt": "2026-11-21T15:39:15.231Z",
+      "queriedAt": "2026-11-21T23:46:45.523Z",
+      "query": {
+        "where": "1=1",
+        "geometry": "149.13667515992,-35.3214782302996,149.154390132325,-35.307560636069",
+        "geometryType": "esriGeometryEnvelope",
+        "inSR": "4326",
+        "spatialRel": "esriSpatialRelIntersects"
+      },
+      "count": 6,
+      "rows": [
+        {
+          "id": 32042,
+          "start": 1779998400000,
+          "end": 1795762800000,
+          "point": [
+            149.14459478168283,
+            -35.320351347398365
+          ]
+        },
+        {
+          "id": 36689,
+          "start": 1788901200000,
+          "end": 1809072000000,
+          "point": [
+            149.146728169605,
+            -35.31334288190494
+          ]
+        },
+        {
+          "id": 40248,
+          "start": 1793736000000,
+          "end": 1803888000000,
+          "point": [
+            149.142364329836,
+            -35.31084477539045
+          ]
+        },
+        {
+          "id": 40251,
+          "start": 1793736000000,
+          "end": 1803888000000,
+          "point": [
+            149.14086218506264,
+            -35.310656947819105
+          ]
+        },
+        {
+          "id": 40260,
+          "start": 1794139200000,
+          "end": 1797534000000,
+          "point": [
+            149.1394150836971,
+            -35.31995059827388
+          ]
+        },
+        {
+          "id": 40264,
+          "start": 1797541200000,
+          "end": 1797570000000,
+          "point": [
+            149.1384598234176,
+            -35.317057438100754
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unplanned-road",
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/arcgis/rest/services/Public_Temporary_Road_Closures/FeatureServer/0",
+      "itemId": "a2d7e3adc74345ceaad09d61288705ac",
+      "sourceEditedAt": "2026-09-23T02:44:04.559Z",
+      "queriedAt": "2026-11-21T23:46:46.259Z",
+      "query": {
+        "where": "1=1",
+        "geometry": "149.13667515992,-35.3214782302996,149.154390132325,-35.307560636069",
+        "geometryType": "esriGeometryEnvelope",
+        "inSR": "4326",
+        "spatialRel": "esriSpatialRelIntersects"
+      },
+      "count": 0,
+      "rows": []
+    },
+    {
+      "id": "planned-footpath",
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/arcgis/rest/services/Footpath_Closures_public_view/FeatureServer/0",
+      "itemId": "5f8db60885934660897e2fbc85027900",
+      "sourceEditedAt": "2026-11-21T15:39:15.231Z",
+      "queriedAt": "2026-11-21T23:46:47.051Z",
+      "query": {
+        "where": "1=1",
+        "geometry": "149.13667515992,-35.3214782302996,149.154390132325,-35.307560636069",
+        "geometryType": "esriGeometryEnvelope",
+        "inSR": "4326",
+        "spatialRel": "esriSpatialRelIntersects"
+      },
+      "count": 9,
+      "rows": [
+        {
+          "id": 24384,
+          "start": 1752440400000,
+          "end": 1824357600000,
+          "point": [
+            149.1373482854745,
+            -35.309259060448646
+          ]
+        },
+        {
+          "id": 27343,
+          "start": 1758229200000,
+          "end": 1851404400000,
+          "point": [
+            149.1373482854745,
+            -35.309259060448646
+          ]
+        },
+        {
+          "id": 31831,
+          "start": 1777323600000,
+          "end": 1803625200000,
+          "point": [
+            149.13891651463427,
+            -35.31680641969273
+          ]
+        },
+        {
+          "id": 31905,
+          "start": 1778446800000,
+          "end": 1803625200000,
+          "point": [
+            149.13891651463427,
+            -35.31680641969273
+          ]
+        },
+        {
+          "id": 32042,
+          "start": 1779998400000,
+          "end": 1795762800000,
+          "point": [
+            149.14459478168283,
+            -35.320351347398365
+          ]
+        },
+        {
+          "id": 34301,
+          "start": 1785099600000,
+          "end": 1795759200000,
+          "point": [
+            149.13933029401932,
+            -35.30865939803129
+          ]
+        },
+        {
+          "id": 36689,
+          "start": 1788901200000,
+          "end": 1809072000000,
+          "point": [
+            149.146728169605,
+            -35.31334288190494
+          ]
+        },
+        {
+          "id": 40260,
+          "start": 1794128400000,
+          "end": 1797534000000,
+          "point": [
+            149.1394150836971,
+            -35.31995059827388
+          ]
+        },
+        {
+          "id": 40288,
+          "start": 1794168000000,
+          "end": 1800597600000,
+          "point": [
+            149.13969641619917,
+            -35.309403540745194
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unplanned-footpath",
+      "sourceUrl": "https://services1.arcgis.com/E5n4f1VY84i0xSjy/arcgis/rest/services/Public_Temporary_Footpath_Closures/FeatureServer/0",
+      "itemId": "db394ea5d25744999c6e5a0d156030a3",
+      "sourceEditedAt": "2026-09-23T02:44:04.559Z",
+      "queriedAt": "2026-11-21T23:46:47.533Z",
+      "query": {
+        "where": "1=1",
+        "geometry": "149.13667515992,-35.3214782302996,149.154390132325,-35.307560636069",
+        "geometryType": "esriGeometryEnvelope",
+        "inSR": "4326",
+        "spatialRel": "esriSpatialRelIntersects"
+      },
+      "count": 0,
+      "rows": []
+    }
+  ]
+}

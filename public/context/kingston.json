@@ -1,0 +1,140 @@
+{
+  "asOf": "2026-11-21T23:46:47.533Z",
+  "persistent": [
+    {
+      "id": "flood",
+      "title": "Flood mapping",
+      "status": "unavailable",
+      "summary": "Address-level screening is unavailable here. Check the Kingston address on the official 1% annual exceedance probability flood map.",
+      "coverage": "Indicative mapping for major stormwater channels, creeks and rivers. Street-scale overland flow and individual-block drainage need separate checks.",
+      "sourceName": "ACT Government",
+      "sourceUrl": "https://www.act.gov.au/environment/water/flood-maps",
+      "action": "Open ACTmapi Flood Map",
+      "href": "https://www.actmapi.act.gov.au/map-links/flood-map",
+      "observedAt": null
+    },
+    {
+      "id": "bushfire",
+      "title": "Bushfire prone areas",
+      "status": "unavailable",
+      "summary": "Address-level screening is unavailable here. Search the Kingston address on the official Bushfire Map for its mapped designation.",
+      "coverage": "ACT bushfire prone area designation. A detailed site assessment is a separate check.",
+      "sourceName": "ACT Emergency Services Agency",
+      "sourceUrl": "https://esa.act.gov.au/be-emergency-ready/bushfires",
+      "action": "Open ACTmapi Bushfire Map",
+      "href": "https://www.actmapi.act.gov.au/map-links/bushfire",
+      "observedAt": null
+    },
+    {
+      "id": "library",
+      "title": "Kingston Library",
+      "status": "available",
+      "summary": "Kingston Library is at 54 Giles Street. Libraries ACT publishes branch hours, contact details and facilities.",
+      "coverage": "One verified Kingston facility. Check the branch page for current hours.",
+      "sourceName": "Libraries ACT",
+      "sourceUrl": "https://www.library.act.gov.au/visit/find-us",
+      "action": "See library locations and hours",
+      "observedAt": "2026-11-21T23:42:00Z",
+      "href": "https://www.library.act.gov.au/visit/find-us"
+    },
+    {
+      "id": "active-travel",
+      "title": "Walking and cycling",
+      "status": "available",
+      "summary": "Transport Canberra publishes a walking and cycling map for exploring connections from Kingston.",
+      "coverage": "Canberra network overview. Check the route and any temporary closures before travelling.",
+      "sourceName": "Transport Canberra",
+      "sourceUrl": "https://www.transport.act.gov.au/getting-around/find-a-stop-or-map",
+      "action": "Find walking and cycling maps",
+      "observedAt": "2026-11-21T23:42:00Z",
+      "href": "https://www.transport.act.gov.au/getting-around/find-a-stop-or-map"
+    },
+    {
+      "id": "station",
+      "title": "Canberra Station",
+      "status": "available",
+      "summary": "Canberra Station is on Burke Crescent in Kingston. The official station page lists access, facilities and departures.",
+      "coverage": "Station facilities and accessibility. Check the operator for trips and current running information.",
+      "sourceName": "Transport for NSW",
+      "sourceUrl": "https://transportnsw.info/stop?q=26041",
+      "action": "See station facilities",
+      "observedAt": "2026-11-21T23:42:00Z",
+      "href": "https://transportnsw.info/stop?q=26041"
+    },
+    {
+      "id": "playgrounds",
+      "title": "Public playgrounds",
+      "status": "available",
+      "summary": "The ACT asset register lists 1 active playground record tagged Kingston.",
+      "coverage": "Government asset records tagged Kingston. Coverage can exclude privately managed or unlisted facilities. Active is an inventory status.",
+      "sourceName": "ACT Government Open Data",
+      "sourceUrl": "https://www.data.act.gov.au/d/e4ug-7r3x",
+      "observedAt": "2026-11-21T23:46:44.544Z",
+      "action": "View the official asset register",
+      "href": "https://www.data.act.gov.au/d/e4ug-7r3x"
+    },
+    {
+      "id": "fountains",
+      "title": "Public drinking fountains",
+      "status": "available",
+      "summary": "The ACT asset register lists 4 active fountain assets tagged Kingston.",
+      "coverage": "Government asset records tagged Kingston. Coverage can exclude privately managed or unlisted facilities. Active is an inventory status.",
+      "sourceName": "ACT Government Open Data",
+      "sourceUrl": "https://www.data.act.gov.au/d/xfiz-thuk",
+      "observedAt": "2026-11-21T23:46:44.516Z",
+      "action": "View the official asset register",
+      "href": "https://www.data.act.gov.au/d/xfiz-thuk"
+    }
+  ],
+  "today": [
+    {
+      "id": "transit",
+      "title": "Public transport departures",
+      "status": "unavailable",
+      "summary": "Live departures and delays are unavailable in this view. Enter a Kingston address in the Transport Canberra journey planner.",
+      "coverage": "The MyWay+ schedule and real-time developer feeds require approved access. Check the official planner for your chosen trip.",
+      "sourceName": "Transport Canberra",
+      "sourceUrl": "https://www.transport.act.gov.au/contact-us/information-for-developers",
+      "observedAt": null,
+      "action": "Open journey planner",
+      "href": "https://www.transport.act.gov.au/"
+    },
+    {
+      "id": "transit-alerts",
+      "title": "Public transport changes",
+      "status": "unavailable",
+      "summary": "Live Kingston service alerts are unavailable in this view. Transport Canberra publishes diversions and upcoming changes.",
+      "coverage": "Operator notices for the ACT network. Check the notice against your route, stop and date.",
+      "sourceName": "Transport Canberra",
+      "sourceUrl": "https://www.transport.act.gov.au/news/service-alerts-and-updates",
+      "observedAt": null,
+      "action": "Check service alerts",
+      "href": "https://www.transport.act.gov.au/news/service-alerts-and-updates"
+    },
+    {
+      "id": "road-closures",
+      "title": "Road and footpath notices",
+      "status": "available",
+      "summary": "2 road notices and 3 footpath notices mapped in Kingston have date ranges overlapping the seven days from this check. Check the map for locations and operating hours.",
+      "coverage": "Roads ACT planned and unplanned notices with a mapped point in Kingston and a start and end date. Notices can overlap, apply at certain hours or finish early. Other road managers and unmapped disruptions may be missing.",
+      "sourceName": "Roads ACT",
+      "sourceUrl": "https://www.cityservices.act.gov.au/roads-and-paths/act_public_road_closures",
+      "action": "Check the latest closure map",
+      "observedAt": "2026-11-21T23:46:47.533Z",
+      "expiresAt": "2026-11-22T23:46:45.523Z",
+      "href": "https://www.cityservices.act.gov.au/roads-and-paths/act_public_road_closures"
+    },
+    {
+      "id": "events",
+      "title": "Events today and this week",
+      "status": "unavailable",
+      "summary": "A Kingston events feed is unavailable in this view. Browse VisitCanberra for today or the next seven days and check the venue.",
+      "coverage": "The official calendar covers listed Canberra-region events. ATDW API redistribution requires a distributor licence.",
+      "sourceName": "VisitCanberra",
+      "sourceUrl": "https://visitcanberra.com.au/events",
+      "observedAt": null,
+      "action": "Browse the events calendar",
+      "href": "https://visitcanberra.com.au/events"
+    }
+  ]
+}

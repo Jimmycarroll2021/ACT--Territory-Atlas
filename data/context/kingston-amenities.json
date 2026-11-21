@@ -1,0 +1,25 @@
+[
+  {
+    "dataset": "e4ug-7r3x",
+    "sourceUrl": "https://www.data.act.gov.au/resource/e4ug-7r3x.json",
+    "where": "suburb='KINGSTON' and operational_state='ACTIVE'",
+    "observedAt": "2026-11-21T23:46:44.544Z",
+    "count": 1,
+    "ids": [
+      "PLGR500"
+    ]
+  },
+  {
+    "dataset": "xfiz-thuk",
+    "sourceUrl": "https://www.data.act.gov.au/resource/xfiz-thuk.json",
+    "where": "suburb='KINGSTON' and operational_state='ACTIVE'",
+    "observedAt": "2026-11-21T23:46:44.516Z",
+    "count": 4,
+    "ids": [
+      "DRFN266",
+      "DRFN312",
+      "DRFN313",
+      "DRFN314"
+    ]
+  }
+]

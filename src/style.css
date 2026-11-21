@@ -60,3 +60,60 @@ button:disabled,select:disabled,input:disabled{cursor:default;opacity:.65}
 @media(max-width:360px){
   .daInspector{max-height:calc(100% - 153px)}
 }
+
+.contextTabs:not([hidden]){
+  display:grid;
+  grid-template-columns:1fr 1.45fr;
+  gap:4px;
+  padding:4px;
+  margin-top:18px;
+  border:1px solid var(--line);
+  border-radius:6px;
+  background:#edf0e6;
+}
+.contextTabs button{
+  min-height:44px;
+  padding:7px 8px;
+  border:1px solid transparent;
+  border-radius:4px;
+  background:transparent;
+  font-size:13px;
+  font-weight:650;
+}
+.contextTabs button[aria-selected=true]{background:var(--ink);color:white}
+.contextTabs button[aria-selected=false]:hover{border-color:#afbea9}
+.contextShortcut{
+  min-height:44px;
+  margin-top:4px;
+  padding:4px 1px;
+  border:0;
+  background:transparent;
+  color:#365c47;
+  font-size:13px;
+  font-weight:650;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.contextShortcut:not([hidden]) + #selection .sectionLine:first-child{margin-top:2px}
+.contextSection{margin-top:18px;overflow-wrap:anywhere}
+#locationFacts{padding-top:16px;border-top:1px solid var(--line)}
+.contextSection:focus-visible{outline:3px solid #c45b31;outline-offset:4px}
+.contextSection h2{font-size:33px;line-height:1.1;letter-spacing:-.8px}
+.contextIntro,.contextStatus,.contextMeta{color:var(--muted);font-size:12px;line-height:1.5}
+.contextIntro{margin-top:6px}
+.contextStatus:not(:empty){margin-top:12px}
+.contextList{display:grid;gap:9px;margin:10px 0 0;padding:0;list-style:none}
+.contextCard{min-width:0;padding:12px;border:1px solid var(--line);border-radius:6px;background:#fffefa}
+.contextCardHeading{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.contextCardHeading h3{font-size:15px;line-height:1.35}
+.contextBadge{flex:none;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:700}
+.contextBadge-available{background:#e7efe2;color:#254b37}
+.contextBadge-unavailable,.contextBadge-stale{background:#f6ebd9;color:#624821}
+.contextSummary{margin-top:6px;font-size:13px;line-height:1.5}
+.contextAction{display:inline-block;margin-top:6px;font-size:13px;line-height:1.45;color:var(--ink);font-weight:650}
+a.contextAction{padding:5px 0;text-underline-offset:3px}
+.contextMeta{display:grid;gap:4px;margin:10px 0 0;padding-top:8px;border-top:1px solid var(--line)}
+.contextMeta>div{display:grid;grid-template-columns:59px minmax(0,1fr);gap:5px}
+.contextMeta dt{font-weight:650}
+.contextMeta dd{margin:0}
+.contextRetry{min-height:44px}
