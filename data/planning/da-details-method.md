@@ -2,6 +2,8 @@
 
 The detail file adds reviewed proposal summaries to the exact DA inventory named in `public/planning/current.json`. A DA number is the only join key. The map's parcel relationships and completed/active classification come from the pinned spatial snapshot. The optional detail stage and decision come from DA Finder at the check date (UTC). They can differ from the spatial snapshot.
 
+`da-reconciliation.json` records a disposition for every pinned DA number at the capture date. Each record links to the exact-number DA Finder query and lists only the amendment identifier, stage, decision and proposal digest for its captured rows. `publishedStage` and `publishedDecision` stay null when a number is ambiguous, unavailable or awaiting proposal review. Multiple rows are not sorted into a presumed latest decision. The `da-details-holds.json` file explains the one proposal held for contradictory wording.
+
 ## Coverage
 
 The capture returned 80 rows for the map's 71 DA numbers. Of the 47 reviewed matches, 46 had a single row. DA 202442858 had three rows (original, S168D and S168G) and a reviewed remitted decision. Fifteen other numbers had multiple rows and remain ambiguous. Eight had no match. One description (202544528) referred to both demolition of the house and two extensions to that same house. It remains unreviewed pending clearer evidence.
@@ -20,7 +22,7 @@ The capture requests only the DA number, amendment identifier, stage, decision a
 
 ## Reproduction
 
-Run from the project root with Python 3.10 or newer. The script uses the standard library.
+Run from the project root with Python 3.10 or newer. The script uses the standard library. Refresh and replay write both the public details and the private reconciliation ledger. Check verifies both outputs byte for byte.
 
 ```powershell
 python -B scripts/planning/da_details.py --refresh

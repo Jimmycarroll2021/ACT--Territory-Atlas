@@ -22,6 +22,8 @@ FIELDS = ("DA_NUMBER", "AMENDMENT_VERSION", "DA_STAGE", "DECISION", "PROPOSAL_TE
 RECEIPT = DATA / "da-details-evidence.json"
 REVIEWS = DATA / "da-details-reviewed.json"
 OUTPUT = PUBLIC / "da-details.json"
+RECONCILIATION = DATA / "da-reconciliation.json"
+HOLDS = DATA / "da-details-holds.json"
 STAGES = {"Decided", "Lodged", "Under Assessment", "On notification"}
 DECISIONS = {"Approval Conditional", "Refused", "Withdrawn", None}
 CONTACT = re.compile(r"[@<>]|https?://|\b(?:\+?61|0[23478])(?:[ ()-]*\d){8}\b", re.I)
@@ -160,6 +162,47 @@ def build(evidence, snapshot, numbers):
             "termsUrl": TERMS, "records": records}
 
 
+def reconcile(evidence, payload, snapshot, numbers):
+    """Record the disposition of every pinned number without selecting an amendment."""
+    holds = read(HOLDS)
+    if set(holds) - set(numbers):
+        raise ValueError("Hold belongs to a different planning inventory")
+    records = {}
+    for number in numbers:
+        rows = evidence["rows"][number]
+        published = payload["records"][number]
+        status = published["status"]
+        if status == "matched":
+            disposition = "reviewed_summary"
+            reason = "Proposal summary is pinned to reviewed source evidence."
+        elif status == "unavailable":
+            disposition = "no_finder_row"
+            reason = "No exact DA number match was returned by DA Finder."
+        elif status == "ambiguous":
+            disposition = "multiple_rows_pending_review"
+            reason = "Multiple rows exist; no amendment or decision is selected without document review."
+        else:
+            disposition = "source_pending_review"
+            reason = holds.get(number, "Source proposal has not been reviewed for publication.")
+        if number in holds and status != "unreviewed":
+            raise ValueError(f"Stale review hold for DA {number}")
+        check_copy(number, [reason])
+        records[number] = {
+            "reviewDisposition": disposition,
+            "reason": reason,
+            "sourceRowCount": len(rows),
+            "sourceRows": [{"amendment": r["amendment"], "stage": r["stage"],
+                            "decision": r["decision"], "proposalSha256": r["proposalSha256"]}
+                           for r in rows],
+            "publishedStatus": status,
+            "publishedStage": published["stage"],
+            "publishedDecision": published["decision"],
+            "sourceUrl": published["sourceUrl"],
+        }
+    return {"schemaVersion": 1, "snapshotId": snapshot, "checkedAt": evidence["checkedAt"],
+            "sourceName": payload["sourceName"], "sourceUrl": LAYER, "records": records}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     group = parser.add_mutually_exclusive_group(required=True)
@@ -171,12 +214,16 @@ def main():
     evidence = capture(snapshot, numbers) if args.refresh else read(RECEIPT)
     payload = build(evidence, snapshot, numbers)
     content = encode(payload)
+    ledger = encode(reconcile(evidence, payload, snapshot, numbers))
     if args.refresh:
         save(RECEIPT, encode(evidence))
     if args.refresh or args.replay:
         save(OUTPUT, content)
+        save(RECONCILIATION, ledger)
     elif OUTPUT.read_bytes() != content:
         raise ValueError("Published details differ from rebuilt evidence")
+    elif RECONCILIATION.read_bytes() != ledger:
+        raise ValueError("Reconciliation differs from rebuilt evidence")
     counts = Counter(r["status"] for r in payload["records"].values())
     print(f"{len(numbers)} DAs; {sum(map(len, evidence['rows'].values()))} source rows; {dict(counts)}")
 

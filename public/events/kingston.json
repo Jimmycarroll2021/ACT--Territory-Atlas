@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "status": "access-required",
+  "asOf": null,
+  "expiresAt": null,
+  "sourceName": "VisitCanberra",
+  "sourceUrl": "https://visitcanberra.com.au/events",
+  "coverage": "A Kingston events feed requires licensed ATDW distributor access. Check the official calendar for current events.",
+  "events": []
+}

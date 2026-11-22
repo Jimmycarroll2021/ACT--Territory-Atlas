@@ -6,6 +6,7 @@ import {escapeHtml as esc,facts,showProfile} from './profile'
 import {showPlanning} from './planning'
 import {applicationInspector} from './da-inspector'
 import {createContextViews} from './context-ui'
+import {updatePropertyContext} from './property-context'
 import manifest from '../data/geo/manifest.json'
 
 const $=<T extends HTMLElement=HTMLElement>(s:string)=>document.querySelector<T>(s)!
@@ -136,6 +137,7 @@ function render(){
  $('#panelTitle').textContent=name||'Explore Canberra';$('#panelIntro').textContent=!area?'Browse suburb boundaries and explore property detail in Kingston.':name==='Kingston'?'Explore property records and local conditions.':'Explore the official division boundary for '+name+'.'
  $('#place').textContent='Canberra  /  '+(fullTerritory?'ACT border':name||'Overview')
  contextViews.setKingston(isKingston())
+ updatePropertyContext(isKingston(),block,home,d.addresses.features)
  if(name==='Kingston')renderDrill()
  else{
    sel.innerHTML=(area?'<hr class="sectionLine"><div class="smallcap">Division record</div>'+facts([['Division code',area.properties.DIVISION_CODE],['Property detail','Kingston only']]):'')+card()+legend()+'<button class="back territoryBtn" id="territory"><i data-icon="globe"></i> View full ACT border</button>'

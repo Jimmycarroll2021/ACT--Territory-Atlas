@@ -14,12 +14,15 @@
 <section id="locationFacts" class="contextSection" aria-labelledby="locationFactsTitle" tabindex="-1" hidden>
 <h2 id="locationFactsTitle">Location facts</h2>
 <p class="contextIntro">Area context for Kingston. Check each source’s coverage for the property you’re considering.</p>
+<div id="selectedContext" class="selectedContext" aria-live="polite"></div>
 <p class="contextStatus" role="status"></p><div class="contextRows"></div>
 </section>
 </div>
 <section id="todayView" class="contextSection" role="tabpanel" aria-labelledby="todayTab" tabindex="0" hidden>
 <h2>Today &amp; this week</h2>
 <p class="contextIntro">Time-sensitive information for Kingston and nearby areas. Check the observation time and coverage.</p>
+<section id="commutePanel" class="commutePanel" aria-labelledby="commuteTitle"><h3 id="commuteTitle">Plan a commute</h3><p class="contextIntro">Choose a mapped Kingston address or enter destination coordinates. Journey times are currently unavailable.</p><form id="commuteForm"><label class="field">Destination address in Kingston<input id="destinationSearch" type="search" placeholder="Search street or unit" autocomplete="off"></label><div id="destinationMatches"></div><details class="coordinateDestination"><summary>Destination outside Kingston: use coordinates</summary><label class="field">Longitude<input id="destinationLon" type="number" min="-180" max="180" step="any" inputmode="decimal"></label><label class="field">Latitude<input id="destinationLat" type="number" min="-90" max="90" step="any" inputmode="decimal"></label><p class="contextIntro">Coordinates identify a point, not a verified street entrance.</p></details><label class="field">Departure (your device time)<input id="commuteDeparture" type="datetime-local" required></label><label class="field">Travel mode<select id="commuteMode"><option value="transit">Public transport</option><option value="walk">Walking</option></select></label><button class="retry" type="submit">Check journey</button></form><p id="commuteResult" role="status" class="contextStatus">Select a Kingston address to set the origin. Journey times are unavailable until route data is connected.</p><div id="roadNotices"></div></section>
+<section id="eventsPanel" class="eventsPanel" aria-labelledby="eventsTitle"><h3 id="eventsTitle">Events this week</h3><p id="eventsStatus" class="contextIntro" role="status">Checking dated event listings…</p><div id="eventsRows"></div></section>
 <p class="contextStatus" role="status"></p><div class="contextRows"></div>
 </section></div>
 <div class="sideFoot"><i data-icon="map"></i> Canberra, Australia</div></aside>

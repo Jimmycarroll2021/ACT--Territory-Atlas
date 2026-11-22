@@ -93,7 +93,7 @@ export function createContextViews() {
     if (!data) return
     const {asOf, persistent, today: current} = data
     const now = new Date()
-    const groups = [persistent, current]
+    const groups = [persistent, current.filter(card => card.id !== 'events')]
     groups.forEach((cards, index) => {
       const message = cards.length ? `Context snapshot ${displayTime(asOf)}` : 'Kingston context is unavailable in this view.'
       if (messages[index].innerHTML !== message) messages[index].innerHTML = message

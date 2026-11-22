@@ -2,6 +2,7 @@ import http from 'node:http'
 import path from 'node:path'
 import { readFile, realpath, stat } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
+import { journey, loadRoadNotices, parseTrip, status as commuteStatus } from './commute/api.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const dist = path.join(root, 'dist')
@@ -47,6 +48,12 @@ const server = http.createServer(async (req, res) => {
     if (url.pathname.startsWith('/api/')) {
       if (req.headers.origin && req.headers.origin !== url.origin || req.headers['sec-fetch-site'] === 'cross-site') return reply(res,403,{error:'Same-origin request required'})
       if (req.method !== 'GET') return reply(res,405,{error:'GET required'})
+      if (url.pathname === '/api/commute/status') return reply(res,200,commuteStatus())
+      if (url.pathname === '/api/commute/journey' || url.pathname === '/api/commute/roads') {
+        const trip = parseTrip(url.searchParams,{requireCoordinates:url.pathname.endsWith('/journey')})
+        if (trip.error) return reply(res,400,{error:trip.error})
+        return reply(res,200,url.pathname.endsWith('/journey') ? journey(trip) : await loadRoadNotices(trip))
+      }
       const match = /^\/api\/properties\/(\d{1,16})$/.exec(url.pathname)
       if (!match) return reply(res,404,{error:'Unknown resource'})
       let data

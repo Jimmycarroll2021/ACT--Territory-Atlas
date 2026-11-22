@@ -99,6 +99,37 @@ class DetailsTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "different planning inventory"):
                 da.build(invalid, snapshot, numbers)
 
+    def test_reconciliation_covers_exact_inventory_and_holds_unknowns(self):
+        snapshot, numbers = da.pinned()
+        evidence = da.read(da.RECEIPT)
+        payload = da.build(evidence, snapshot, numbers)
+        ledger = da.reconcile(evidence, payload, snapshot, numbers)
+        self.assertEqual(sorted(ledger["records"]), numbers)
+        self.assertEqual(da.encode(ledger), da.RECONCILIATION.read_bytes())
+        held = ledger["records"]["202544528"]
+        self.assertEqual(held["reviewDisposition"], "source_pending_review")
+        self.assertIsNone(held["publishedDecision"])
+        self.assertIn("demolished", held["reason"])
+        for number, record in ledger["records"].items():
+            with self.subTest(number=number):
+                self.assertEqual(record["sourceRowCount"], len(evidence["rows"][number]))
+                self.assertEqual(record["publishedStatus"], payload["records"][number]["status"])
+                self.assertEqual(record["sourceUrl"], payload["records"][number]["sourceUrl"])
+                if record["reviewDisposition"] != "reviewed_summary":
+                    self.assertIsNone(record["publishedDecision"])
+
+    def test_reconciliation_rejects_stale_hold(self):
+        snapshot, numbers = da.pinned()
+        evidence = da.read(da.RECEIPT)
+        payload = da.build(evidence, snapshot, numbers)
+        original = da.read
+        da.read = lambda path: {"202645536": "stale"} if path == da.HOLDS else original(path)
+        try:
+            with self.assertRaisesRegex(ValueError, "Stale review hold"):
+                da.reconcile(evidence, payload, snapshot, numbers)
+        finally:
+            da.read = original
+
 
 if __name__ == "__main__":
     unittest.main()

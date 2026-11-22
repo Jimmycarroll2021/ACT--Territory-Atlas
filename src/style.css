@@ -117,3 +117,25 @@ a.contextAction{padding:5px 0;text-underline-offset:3px}
 .contextMeta dt{font-weight:650}
 .contextMeta dd{margin:0}
 .contextRetry{min-height:44px}
+.selectedContext{margin-top:14px}
+.selectedContextEmpty,.selectedContextBox,.commutePanel{padding:12px;border:1px solid var(--line);border-radius:6px;background:#f3f5ec;font-size:13px;line-height:1.5}
+.selectedContextBox h3,.commutePanel h3{font-size:17px;line-height:1.3}
+.selectedContextBox h4{font-size:13px;margin:15px 0 5px}
+.screeningList{padding-left:19px;margin:7px 0 0}
+.screeningList li+li{margin-top:6px}
+.screeningList a,.commutePanel a{color:#365c47;text-underline-offset:3px}
+.amenityRow{display:flex;justify-content:space-between;align-items:start;gap:10px;padding:7px 0;border-top:1px solid var(--line);font-size:12px}
+.amenityRow:first-child{border-top:0}
+.amenityRow div{display:grid;gap:1px}
+.amenityRow div span{color:var(--muted);text-transform:capitalize}
+.amenityRow>span{white-space:nowrap;font-weight:650}
+.commutePanel{margin-top:14px}
+.commutePanel form{margin-top:8px}
+.commutePanel .field{margin-top:10px}
+.commutePanel .retry{min-height:44px}
+.coordinateDestination{margin-top:10px}
+.coordinateDestination summary{font-size:12px;font-weight:650}
+#destinationMatches:not(:empty){margin-top:6px;font-size:12px}
+.eventsPanel{margin-top:12px;padding:12px;border:1px solid var(--line);border-radius:6px;background:#fffefa;font-size:13px;line-height:1.5}
+.eventsPanel h3{font-size:17px}
+.eventsPanel a{color:#365c47;text-underline-offset:3px}
